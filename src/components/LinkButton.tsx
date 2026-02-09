@@ -43,6 +43,13 @@ const LinkItem = ({ href, title, subtitle, logo, logoAlt }: LinkItemProps) => {
 const LinksSection = () => {
   const links: LinkItemProps[] = [
     {
+      href: "https://www.youtube.com/@euleonegrao",
+      title: "Inscreva-se no canal",
+      subtitle: "Conteúdo no YouTube",
+      logo: minimalMarketingLogo,
+      logoAlt: "Minimal Marketing",
+    },
+    {
       href: "https://www.instagram.com/euleonegrao/",
       title: "Acompanhe minha jornada",
       subtitle: "Bastidores no Instagram",
@@ -50,21 +57,21 @@ const LinksSection = () => {
       logoAlt: "Minimal Marketing",
     },
     {
-      href: "https://wa.me/5512997289339?text=Olá",
+      href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20me%20tornar%20cliente%20da%20Minimal%20Marketing.",
       title: "Contrate minha assessoria",
       subtitle: "Gestão de tráfego para o seu negócio",
       logo: minimalMarketingLogo,
       logoAlt: "Minimal Marketing",
     },
     {
-      href: "https://wa.me/5512997289339?text=Olá",
+      href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20mentorado%20da%20Minimal%20PRO.",
       title: "Minimal Pro",
       subtitle: "Mentoria individual para gestores de tráfego",
       logo: minimalProLogo,
       logoAlt: "Minimal Pro",
     },
     {
-      href: "https://wa.me/5512997289339?text=Olá",
+      href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20aluno%20da%20Minimal%20Academy.",
       title: "Minimal Academy",
       subtitle: "Comunidade de gestão de tráfego e negócios locais",
       logo: minimalAcademyLogo,
