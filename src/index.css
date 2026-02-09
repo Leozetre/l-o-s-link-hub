@@ -36,9 +36,9 @@
 
     --radius: 0.5rem;
 
-    --link-bg: 0 0% 100%;
-    --link-border: 0 0% 85%;
-    --link-text: 0 0% 15%;
+    --link-bg: 0 0% 7%;
+    --link-border: 0 0% 20%;
+    --link-text: 0 0% 92%;
     --link-hover-shadow: 0 8px 25px -8px hsl(168 100% 33% / 0.3);
   }
 
