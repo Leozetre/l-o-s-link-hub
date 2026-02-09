@@ -44,8 +44,8 @@ const LinkItem = ({
         <div
           className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105"
           style={{
-            background: `linear-gradient(145deg, ${accentColor}20, ${accentColor}08)`,
-            border: `1px solid ${accentColor}30`,
+            background: 'transparent',
+            border: `1px solid ${accentColor}25`,
           }}
         >
           {icon}
@@ -107,7 +107,7 @@ const LinksSection = () => {
         <img
           src={minimalProLogo}
           alt="Minimal Pro"
-          className="h-7 w-7 object-contain"
+          className="h-8 w-8 object-contain drop-shadow-sm"
         />
       ),
       gradientFrom: "hsl(0 0% 10%)",
@@ -122,7 +122,7 @@ const LinksSection = () => {
         <img
           src={minimalAcademyLogo}
           alt="Minimal Academy"
-          className="h-7 w-7 object-contain"
+          className="h-8 w-8 object-contain drop-shadow-sm"
         />
       ),
       gradientFrom: "hsl(0 0% 10%)",
