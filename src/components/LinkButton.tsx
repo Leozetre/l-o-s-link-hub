@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import minimalMarketingLogo from "@/assets/minimal-marketing-logo.png";
+import { ArrowRight, Youtube, Instagram, MessageCircle } from "lucide-react";
 import minimalProLogo from "@/assets/minimal-pro-logo.png";
 import minimalAcademyLogo from "@/assets/minimal-academy-logo.png";
 
@@ -7,34 +6,65 @@ interface LinkItemProps {
   href: string;
   title: string;
   subtitle: string;
-  logo: string;
-  logoAlt: string;
+  icon: React.ReactNode;
+  gradientFrom: string;
+  gradientTo: string;
+  accentColor: string;
 }
 
-const LinkItem = ({ href, title, subtitle, logo, logoAlt }: LinkItemProps) => {
+const LinkItem = ({
+  href,
+  title,
+  subtitle,
+  icon,
+  gradientFrom,
+  gradientTo,
+  accentColor,
+}: LinkItemProps) => {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between w-full py-6 border-b border-link-border transition-all duration-300 hover:border-primary"
+      className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl border border-border/50 transition-all duration-300 hover:border-transparent overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`,
+      }}
     >
-      <div className="flex items-center gap-4 transition-transform duration-300 group-hover:translate-x-3">
-        <img
-          src={logo}
-          alt={logoAlt}
-          className="h-10 w-10 object-contain shrink-0"
-        />
+      {/* Subtle glow on hover */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"
+        style={{
+          background: `radial-gradient(ellipse at 20% 50%, ${accentColor}15, transparent 70%)`,
+        }}
+      />
+
+      <div className="flex items-center gap-4 relative z-10 transition-transform duration-300 group-hover:translate-x-2">
+        {/* Icon container */}
+        <div
+          className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105"
+          style={{
+            background: `linear-gradient(145deg, ${accentColor}20, ${accentColor}08)`,
+            border: `1px solid ${accentColor}30`,
+          }}
+        >
+          {icon}
+        </div>
+
         <div className="flex flex-col gap-0.5">
-          <span className="text-xl sm:text-2xl leading-tight font-bold text-link-text">
+          <span className="text-lg sm:text-xl leading-tight font-bold text-link-text">
             {title}
           </span>
-          <span className="text-xs sm:text-sm text-muted-foreground">{subtitle}</span>
+          <span className="text-xs sm:text-sm text-muted-foreground font-medium">
+            {subtitle}
+          </span>
         </div>
       </div>
+
       <ArrowRight
-        size={24}
-        className="text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 shrink-0 ml-4"
+        size={20}
+        className="relative z-10 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 shrink-0 ml-4"
+        style={{ color: accentColor }}
       />
     </a>
   );
@@ -46,41 +76,63 @@ const LinksSection = () => {
       href: "https://www.youtube.com/@euleonegrao",
       title: "Inscreva-se no canal",
       subtitle: "Conteúdo no YouTube",
-      logo: minimalMarketingLogo,
-      logoAlt: "Minimal Marketing",
+      icon: <Youtube size={26} className="text-red-500" />,
+      gradientFrom: "hsl(0 0% 10%)",
+      gradientTo: "hsl(0 10% 9%)",
+      accentColor: "#FF0033",
     },
     {
       href: "https://www.instagram.com/euleonegrao/",
       title: "Acompanhe minha jornada",
       subtitle: "Bastidores no Instagram",
-      logo: minimalMarketingLogo,
-      logoAlt: "Minimal Marketing",
+      icon: <Instagram size={26} className="text-pink-400" />,
+      gradientFrom: "hsl(0 0% 10%)",
+      gradientTo: "hsl(320 10% 9%)",
+      accentColor: "#E1306C",
     },
     {
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20me%20tornar%20cliente%20da%20Minimal%20Marketing.",
       title: "Contrate minha assessoria",
-      subtitle: "Gestão de tráfego para o seu negócio",
-      logo: minimalMarketingLogo,
-      logoAlt: "Minimal Marketing",
+      subtitle: "Fale comigo no WhatsApp",
+      icon: <MessageCircle size={26} className="text-green-400" />,
+      gradientFrom: "hsl(0 0% 10%)",
+      gradientTo: "hsl(140 10% 9%)",
+      accentColor: "#25D366",
     },
     {
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20mentorado%20da%20Minimal%20PRO.",
       title: "Minimal Pro",
       subtitle: "Mentoria individual para gestores de tráfego",
-      logo: minimalProLogo,
-      logoAlt: "Minimal Pro",
+      icon: (
+        <img
+          src={minimalProLogo}
+          alt="Minimal Pro"
+          className="h-7 w-7 object-contain"
+        />
+      ),
+      gradientFrom: "hsl(0 0% 10%)",
+      gradientTo: "hsl(168 15% 8%)",
+      accentColor: "#00A98F",
     },
     {
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20aluno%20da%20Minimal%20Academy.",
       title: "Minimal Academy",
-      subtitle: "Comunidade de gestão de tráfego e negócios locais",
-      logo: minimalAcademyLogo,
-      logoAlt: "Minimal Academy",
+      subtitle: "Comunidade de tráfego e negócios locais",
+      icon: (
+        <img
+          src={minimalAcademyLogo}
+          alt="Minimal Academy"
+          className="h-7 w-7 object-contain"
+        />
+      ),
+      gradientFrom: "hsl(0 0% 10%)",
+      gradientTo: "hsl(168 15% 8%)",
+      accentColor: "#00A98F",
     },
   ];
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full gap-3">
       {links.map((link) => (
         <LinkItem key={link.title} {...link} />
       ))}
