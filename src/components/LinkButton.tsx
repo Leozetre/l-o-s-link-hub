@@ -107,7 +107,7 @@ const LinksSection = () => {
         <img
           src={minimalProLogo}
           alt="Minimal Pro"
-          className="h-8 w-8 object-contain drop-shadow-sm"
+          className="h-10 w-auto max-w-[6rem] object-contain mix-blend-screen"
         />
       ),
       gradientFrom: "hsl(0 0% 10%)",
@@ -122,7 +122,7 @@ const LinksSection = () => {
         <img
           src={minimalAcademyLogo}
           alt="Minimal Academy"
-          className="h-8 w-8 object-contain drop-shadow-sm"
+          className="h-10 w-auto max-w-[6rem] object-contain mix-blend-screen"
         />
       ),
       gradientFrom: "hsl(0 0% 10%)",
