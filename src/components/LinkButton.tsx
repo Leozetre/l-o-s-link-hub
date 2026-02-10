@@ -74,8 +74,8 @@ const LinksSection = () => {
   const links: LinkItemProps[] = [
     {
       href: "https://www.youtube.com/@euleonegrao",
-      title: "Inscreva-se no canal",
-      subtitle: "Conteúdo no YouTube",
+      title: "Inscreva-se no YouTube",
+      subtitle: "Mercado digital e Tráfego sem filtro",
       icon: <Youtube size={26} className="text-red-500" />,
       gradientFrom: "hsl(0 0% 10%)",
       gradientTo: "hsl(0 10% 9%)",
@@ -83,8 +83,8 @@ const LinksSection = () => {
     },
     {
       href: "https://www.instagram.com/euleonegrao/",
-      title: "Acompanhe minha jornada",
-      subtitle: "Bastidores no Instagram",
+      title: "Acompanhe no Instagram",
+      subtitle: "Rotina real de quem vive disso",
       icon: <Instagram size={26} className="text-pink-400" />,
       gradientFrom: "hsl(0 0% 10%)",
       gradientTo: "hsl(320 10% 9%)",
@@ -92,8 +92,8 @@ const LinksSection = () => {
     },
     {
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20me%20tornar%20cliente%20da%20Minimal%20Marketing.",
-      title: "Contrate minha assessoria",
-      subtitle: "Fale comigo no WhatsApp",
+      title: "Fale comigo no WhatsApp",
+      subtitle: "Tenha uma consultoria ou nos contrate",
       icon: <MessageCircle size={26} className="text-green-400" />,
       gradientFrom: "hsl(0 0% 10%)",
       gradientTo: "hsl(140 10% 9%)",
@@ -102,7 +102,7 @@ const LinksSection = () => {
     {
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20mentorado%20da%20Minimal%20PRO.",
       title: "Minimal Pro",
-      subtitle: "Mentoria individual para gestores de tráfego",
+      subtitle: "Mentoria 1 a 1 para gestores de tráfego e players do mercado digital",
       icon: (
         <img
           src={minimalProLogo}
@@ -117,7 +117,7 @@ const LinksSection = () => {
     {
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20aluno%20da%20Minimal%20Academy.",
       title: "Minimal Academy",
-      subtitle: "Comunidade de tráfego e negócios locais",
+      subtitle: "Tráfego pago, negócios digitais e networking em um só lugar",
       icon: (
         <img
           src={minimalAcademyLogo}
