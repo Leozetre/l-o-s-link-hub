@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { X, ExternalLink } from "lucide-react";
+import { ChevronDown, ExternalLink, ZoomIn, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/tracking";
 
 interface ProofCase {
@@ -19,10 +20,10 @@ const cases: ProofCase[] = [
     bullets: [
       "Começou sem histórico/estrutura de tráfego",
       "Primeiras vendas e agenda ganhando tração",
-      "Evolução até abrir a própria clínica (4 meses)",
+      "Evolução até abrir a própria clínica",
     ],
     whatsappUrl:
-      "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20dentista%20(lentes%2FHOF%2Fpreenchimento).%20Sou%20da%20%C3%A1rea%20de%20Odonto%20e%20quero%20entender%20um%20plano%20de%20capta%C3%A7%C3%A3o%20pro%20meu%20caso.%20Posso%20te%20passar%3A%20cidade%2C%20ticket%20m%C3%A9dio%20e%20meta%20de%20agenda.",
+      "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20dentista%20(lentes%2FHOF%2Fpreenchimento).%20Quero%20um%20plano%20de%20capta%C3%A7%C3%A3o%20pro%20meu%20caso.%20Minha%20cidade%20%C3%A9%3A%20__.%20Meu%20ticket%20m%C3%A9dio%20%C3%A9%3A%20__.%20Minha%20meta%20de%20agenda%20%C3%A9%3A%20__.",
     thumbnail: "/placeholder.svg",
   },
   {
@@ -35,7 +36,7 @@ const cases: ProofCase[] = [
       "Consistência em oportunidades e vendas",
     ],
     whatsappUrl:
-      "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Sou%20do%20mercado%20imobili%C3%A1rio%20e%20quero%20estruturar%20meu%20funil%20e%20atendimento.%20Posso%20te%20passar%3A%20regi%C3%A3o%2C%20tipo%20de%20im%C3%B3vel%20e%20meta%20mensal%3F",
+      "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
     thumbnail: "/placeholder.svg",
   },
   {
@@ -44,11 +45,11 @@ const cases: ProofCase[] = [
     context: "Tráfego + criativos + constância para varejo.",
     bullets: [
       "Crescimento de vendas e visibilidade",
-      "Aprendizado contínuo em criativos e campanhas",
+      "Rotina de criativos e campanhas",
       "Parceria de longo prazo (2+ anos)",
     ],
     whatsappUrl:
-      "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos%20(crescimento%20e%20presen%C3%A7a%20online).%20Tenho%20uma%20loja%20e%20quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Posso%20te%20passar%3A%20cidade%2C%20ticket%20e%20margem%20m%C3%A9dia%3F",
+      "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos.%20Quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Margem%20m%C3%A9dia%3A%20__.",
     thumbnail: "/placeholder.svg",
   },
 ];
@@ -60,19 +61,32 @@ const segmentColors: Record<string, string> = {
 };
 
 const ProofSection = () => {
-  const [openModal, setOpenModal] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [zoomedIndex, setZoomedIndex] = useState<number | null>(null);
 
-  const handleThumbnailClick = (index: number) => {
-    const c = cases[index];
-    trackEvent({
-      event_name: "proof_thumbnail_open",
-      button_name: c.headline,
-      category: c.segment,
-    });
-    setOpenModal(index);
+  const toggle = (i: number) => {
+    if (openIndex === i) {
+      setOpenIndex(null);
+    } else {
+      trackEvent({
+        event_name: "proof_accordion_open",
+        button_name: cases[i].headline,
+        category: cases[i].segment,
+      });
+      setOpenIndex(i);
+    }
   };
 
-  const handleModalCta = (c: ProofCase) => {
+  const handleZoom = (i: number) => {
+    trackEvent({
+      event_name: "proof_screenshot_zoom",
+      button_name: cases[i].headline,
+      category: cases[i].segment,
+    });
+    setZoomedIndex(i);
+  };
+
+  const handleCta = (c: ProofCase) => {
     trackEvent({
       event_name: "proof_modal_cta_click",
       button_name: c.headline,
@@ -83,117 +97,148 @@ const ProofSection = () => {
   };
 
   return (
-    <section className="flex flex-col gap-3 mb-8">
+    <section id="resultados" className="flex flex-col gap-3 mb-8">
       <h2 className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1">
         Resultados reais (sem promessa milagrosa)
       </h2>
 
       <div className="flex flex-col gap-2.5">
         {cases.map((c, i) => (
-          <button
+          <div
             key={c.segment}
-            onClick={() => handleThumbnailClick(i)}
-            className="flex items-start gap-3 p-3.5 rounded-xl border border-border/40 bg-card/50 text-left transition-all duration-200 hover:border-border/70 hover:bg-card/70 active:scale-[0.99] w-full"
+            className="rounded-xl border border-border/40 bg-card/50 overflow-hidden transition-colors duration-200 hover:border-border/60"
           >
-            {/* Thumbnail */}
-            <div className="shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-muted/30 border border-border/30">
-              <img
-                src={c.thumbnail}
-                alt={`Print ${c.segment}`}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* Trigger */}
+            <button
+              onClick={() => toggle(i)}
+              className="flex items-center gap-3 p-3.5 w-full text-left"
+            >
+              <div className="shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-muted/30 border border-border/30">
+                <img
+                  src={c.thumbnail}
+                  alt={`Print ${c.segment}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-            {/* Text */}
-            <div className="flex flex-col gap-1 min-w-0">
-              <span
-                className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border w-fit ${segmentColors[c.segment] || ""}`}
-              >
-                {c.segment}
-              </span>
-              <p className="text-sm font-bold text-foreground leading-snug truncate">
-                {c.headline}
-              </p>
-              <p className="text-[11px] text-muted-foreground leading-snug line-clamp-2">
-                {c.context}
-              </p>
-              <span className="text-[10px] text-primary font-semibold mt-0.5">
-                Ver print + contexto →
-              </span>
-            </div>
-          </button>
+              <div className="flex flex-col gap-1 min-w-0 flex-1">
+                <span
+                  className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border w-fit ${segmentColors[c.segment] || ""}`}
+                >
+                  {c.segment}
+                </span>
+                <p className="text-sm font-bold text-foreground leading-snug truncate">
+                  {c.headline}
+                </p>
+                <p className="text-[11px] text-muted-foreground leading-snug line-clamp-1">
+                  {c.context}
+                </p>
+              </div>
+
+              <ChevronDown
+                size={16}
+                className={`shrink-0 text-muted-foreground transition-transform duration-300 ${
+                  openIndex === i ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* Expandable content */}
+            <AnimatePresence>
+              {openIndex === i && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-3.5 pb-4 flex flex-col gap-3">
+                    {/* Inline screenshot */}
+                    <div className="relative group">
+                      <div className="w-full rounded-xl overflow-hidden border border-border/40 bg-muted/20">
+                        <img
+                          src={c.thumbnail}
+                          alt={`Screenshot ${c.segment}`}
+                          loading="lazy"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                      <button
+                        onClick={() => handleZoom(i)}
+                        className="absolute top-2 right-2 p-1.5 rounded-lg bg-background/70 backdrop-blur-sm border border-border/30 text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        <ZoomIn size={14} />
+                      </button>
+                    </div>
+
+                    {/* Bullets */}
+                    <ul className="flex flex-col gap-1.5">
+                      {c.bullets.map((b, j) => (
+                        <li
+                          key={j}
+                          className="flex items-start gap-2 text-[13px] text-foreground/90"
+                        >
+                          <span className="shrink-0 mt-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* CTA */}
+                    <button
+                      onClick={() => handleCta(c)}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-primary-foreground transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, hsl(168 100% 33%), hsl(168 80% 28%))",
+                        boxShadow: "0 6px 24px -6px hsl(168 100% 33% / 0.35)",
+                      }}
+                    >
+                      <ExternalLink size={14} />
+                      Quero um plano pro meu caso
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         ))}
       </div>
 
-      {/* Modal */}
-      {openModal !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-          onClick={() => setOpenModal(null)}
-        >
-          <div
-            className="relative w-full max-w-md bg-card border border-border rounded-2xl p-5 flex flex-col gap-4 max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+      {/* Lightbox overlay */}
+      <AnimatePresence>
+        {zoomedIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md"
+            onClick={() => setZoomedIndex(null)}
           >
-            {/* Close */}
-            <button
-              onClick={() => setOpenModal(null)}
-              className="absolute top-3 right-3 p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-2xl w-full"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X size={18} />
-            </button>
-
-            {/* Badge + headline */}
-            <div className="flex flex-col gap-1.5 pr-8">
-              <span
-                className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border w-fit ${segmentColors[cases[openModal].segment] || ""}`}
+              <button
+                onClick={() => setZoomedIndex(null)}
+                className="absolute -top-10 right-0 p-1.5 rounded-lg text-muted-foreground hover:text-foreground transition-colors"
               >
-                {cases[openModal].segment}
-              </span>
-              <h3 className="text-lg font-extrabold text-foreground">
-                {cases[openModal].headline}
-              </h3>
-            </div>
-
-            {/* Screenshot */}
-            <div className="w-full rounded-xl overflow-hidden border border-border/40 bg-muted/20">
+                <X size={20} />
+              </button>
               <img
-                src={cases[openModal].thumbnail}
-                alt={`Print ${cases[openModal].segment}`}
-                className="w-full h-auto"
+                src={cases[zoomedIndex].thumbnail}
+                alt={`Screenshot ${cases[zoomedIndex].segment}`}
+                className="w-full h-auto rounded-2xl border border-border/40"
               />
-            </div>
-
-            {/* Bullets */}
-            <ul className="flex flex-col gap-2">
-              {cases[openModal].bullets.map((b, j) => (
-                <li
-                  key={j}
-                  className="flex items-start gap-2 text-sm text-foreground/90"
-                >
-                  <span className="shrink-0 mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
-                  {b}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <button
-              onClick={() => handleModalCta(cases[openModal])}
-              className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-bold text-sm text-primary-foreground transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                background:
-                  "linear-gradient(135deg, hsl(168 100% 33%), hsl(168 80% 28%))",
-                boxShadow: "0 8px 30px -8px hsl(168 100% 33% / 0.4)",
-              }}
-            >
-              <ExternalLink size={16} />
-              Falar sobre {cases[openModal].segment} no WhatsApp
-            </button>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
