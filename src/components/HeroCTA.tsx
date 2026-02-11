@@ -26,7 +26,7 @@ const HeroCTA = () => {
         ))}
       </div>
       <p className="text-xs text-muted-foreground">
-        +150 clientes atendidos em nichos de alta performance
+        +70 clientes atendidos em nichos de alta performance
       </p>
 
       {/* Primary CTA */}
