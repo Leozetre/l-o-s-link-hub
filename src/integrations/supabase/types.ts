@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      hub_events: {
+        Row: {
+          button_name: string | null
+          category: string | null
+          created_at: string
+          device_type: string
+          event_name: string
+          href: string | null
+          id: string
+          page_path: string
+          referrer: string | null
+          session_id: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          button_name?: string | null
+          category?: string | null
+          created_at?: string
+          device_type?: string
+          event_name: string
+          href?: string | null
+          id?: string
+          page_path?: string
+          referrer?: string | null
+          session_id: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          button_name?: string | null
+          category?: string | null
+          created_at?: string
+          device_type?: string
+          event_name?: string
+          href?: string | null
+          id?: string
+          page_path?: string
+          referrer?: string | null
+          session_id?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       link_clicks: {
         Row: {
           created_at: string
