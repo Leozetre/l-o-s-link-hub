@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import HeroCTA from "@/components/HeroCTA";
 import SocialProof from "@/components/SocialProof";
+import ProofSection from "@/components/ProofSection";
 import NicheCases from "@/components/NicheCases";
 import SecondaryLinks from "@/components/SecondaryLinks";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const Index = () => {
         <main className="w-full max-w-[480px]">
           <HeroCTA />
           <SocialProof />
+          <ProofSection />
           <NicheCases />
           <SecondaryLinks />
           <Footer />
