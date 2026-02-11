@@ -1,5 +1,5 @@
 import { handleTrackedClick } from "@/lib/tracking";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, GraduationCap } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 
 const HeroCTA = () => {
@@ -37,13 +37,13 @@ const HeroCTA = () => {
         +70 clientes atendidos
       </p>
 
-      {/* ── Primary CTA ── */}
+      {/* ── Category A: Primary Actions ── */}
       <button
         onClick={() =>
           handleTrackedClick(
             "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20quero%20um%20diagn%C3%B3stico%20r%C3%A1pido%20para%20meu%20neg%C3%B3cio.",
             "whatsapp_diagnostico",
-            "servico"
+            "primary"
           )
         }
         className="w-full max-w-md flex items-center justify-center gap-3 px-6 py-4 rounded-2xl font-bold text-base sm:text-lg text-primary-foreground transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
@@ -56,18 +56,17 @@ const HeroCTA = () => {
         Diagnóstico rápido via WhatsApp
       </button>
 
-      {/* ── Secondary CTA ── */}
       <button
         onClick={() =>
           handleTrackedClick(
             "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20aplicar%20para%20a%20mentoria%20Minimal%20PRO.",
             "minimal_pro_aplicacao",
-            "produto"
+            "primary"
           )
         }
         className="w-full max-w-md flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl font-bold text-sm sm:text-base border border-primary/30 text-primary bg-primary/5 transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 active:scale-[0.98]"
       >
-        <ArrowRight size={18} />
+        <GraduationCap size={18} />
         Aplicar para Mentoria — Minimal Pro
       </button>
     </section>
