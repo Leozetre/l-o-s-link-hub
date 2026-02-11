@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
 import HeroCTA from "@/components/HeroCTA";
 import SectionReveal from "@/components/SectionReveal";
+import FloatingCTAs from "@/components/FloatingCTAs";
 import { trackPageView } from "@/lib/tracking";
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
     <>
       <AnimatedBackground />
       <ThemeToggle />
+      <FloatingCTAs />
 
       <div className="min-h-screen px-4 py-12">
         {/* Desktop: 2-col | Mobile: single col */}
