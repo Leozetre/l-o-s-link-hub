@@ -58,11 +58,11 @@ const SecondaryLinks = () => {
         trackCategory="produto"
       />
       <SecondaryLink
-        title="App Estratégico"
+        title="Minimal Core"
         description="Ferramenta prática para gestores de tráfego"
         icon={<Zap size={18} className="text-amber-400" />}
         href="#"
-        trackName="app_estrategico"
+        trackName="minimal_core"
         trackCategory="produto"
       />
 

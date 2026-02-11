@@ -1,11 +1,17 @@
+import { useEffect } from "react";
 import HeroCTA from "@/components/HeroCTA";
 import SocialProof from "@/components/SocialProof";
 import NicheCases from "@/components/NicheCases";
 import SecondaryLinks from "@/components/SecondaryLinks";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
+import { trackPageView } from "@/lib/tracking";
 
 const Index = () => {
+  useEffect(() => {
+    trackPageView();
+  }, []);
+
   return (
     <>
       <ThemeToggle />
