@@ -1,6 +1,5 @@
 import HeroCTA from "@/components/HeroCTA";
-import ProductsSection from "@/components/ProductsSection";
-import ChannelsSection from "@/components/ChannelsSection";
+import SecondaryLinks from "@/components/SecondaryLinks";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -9,10 +8,9 @@ const Index = () => {
     <>
       <ThemeToggle />
       <div className="min-h-screen flex items-center justify-center px-4 py-12">
-        <main className="w-full max-w-[680px]">
+        <main className="w-full max-w-[480px]">
           <HeroCTA />
-          <ProductsSection />
-          <ChannelsSection />
+          <SecondaryLinks />
           <Footer />
         </main>
       </div>
