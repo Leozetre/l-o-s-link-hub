@@ -3,7 +3,7 @@ const sections = [
   { id: "cases", label: "Cases" },
   { id: "produtos", label: "Produtos" },
   { id: "servico", label: "Serviço" },
-  { id: "conteudo", label: "Conteúdo" },
+  
 ];
 
 const DesktopNav = () => {
