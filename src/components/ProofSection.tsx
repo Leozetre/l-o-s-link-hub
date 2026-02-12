@@ -19,7 +19,7 @@ const cases: ProofCase[] = [
     id: "odonto-acessivel",
     segment: "Odonto",
     headline: "Odonto acessível: volume com eficiência",
-    context: "Campanhas de mensagens e captação com custo competitivo.",
+    context: "Mensagens e captação com custo competitivo.",
     bullets: [
       "Estrutura simples e repetível de captação",
       "Otimização por custo por conversa",
@@ -34,9 +34,9 @@ const cases: ProofCase[] = [
     id: "odonto-premium",
     segment: "Odonto",
     headline: "Odonto premium: demanda qualificada",
-    context: "Posicionamento + criativos + mensagens para ticket maior.",
+    context: "Criativos + mensagens para ticket maior.",
     bullets: [
-      "Criativos e oferta com filtro de perfil",
+      "Oferta e criativos com filtro de perfil",
       "Qualidade acima de volume",
       "Rotina de testes e otimização",
     ],
@@ -49,7 +49,7 @@ const cases: ProofCase[] = [
     id: "odonto-zero",
     segment: "Odonto",
     headline: "Do zero à própria clínica em 4 meses",
-    context: "Captação para lentes em resina, HOF e preenchimento.",
+    context: "Lentes em resina, HOF e preenchimento.",
     bullets: [
       "Começou sem histórico/estrutura de tráfego",
       "Primeiras vendas e agenda ganhando tração",
@@ -79,7 +79,7 @@ const cases: ProofCase[] = [
     id: "varejo",
     segment: "Varejo",
     headline: "Crescimento contínuo (2+ anos)",
-    context: "Tráfego + criativos + constância para varejo.",
+    context: "Tráfego + criativos + constância.",
     bullets: [
       "Crescimento de vendas e visibilidade",
       "Rotina de criativos e campanhas",
@@ -135,43 +135,44 @@ const ProofSection = () => {
   };
 
   return (
-    <section id="resultados" className="flex flex-col gap-4 mb-8">
+    <section id="resultados" className="flex flex-col gap-5 mb-8">
       <h2 className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1">
         Resultados reais (sem promessa milagrosa)
       </h2>
 
       {/* Timeline container */}
       <div className="relative">
-        {/* Vertical timeline line */}
-        <div className="absolute left-[11px] lg:left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
+        {/* Vertical timeline line — visible on mobile, hidden on desktop 2-col */}
+        <div className="absolute left-[11px] top-4 bottom-4 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent lg:hidden" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        {/* Desktop: masonry-like 2-col with its own timeline per column */}
+        <div className="flex flex-col gap-3 lg:grid lg:grid-cols-2 lg:gap-4">
           {cases.map((c, i) => (
-            <div key={c.id} className="relative pl-8 lg:pl-10">
-              {/* Timeline node */}
+            <div key={c.id} className="relative pl-8 lg:pl-0">
+              {/* Timeline node — mobile only */}
               <div
-                className={`absolute left-0 lg:left-1 top-4 h-[22px] w-[22px] lg:h-[28px] lg:w-[28px] rounded-full border-2 flex items-center justify-center transition-colors duration-300 ${
+                className={`lg:hidden absolute left-0 top-4 h-[22px] w-[22px] rounded-full border-2 flex items-center justify-center transition-colors duration-300 ${
                   openIndex === i
                     ? "border-primary bg-primary/20"
                     : "border-border/60 bg-card/80"
                 }`}
               >
                 <div
-                  className={`h-2 w-2 lg:h-2.5 lg:w-2.5 rounded-full transition-colors duration-300 ${
+                  className={`h-2 w-2 rounded-full transition-colors duration-300 ${
                     openIndex === i ? "bg-primary" : "bg-muted-foreground/40"
                   }`}
                 />
               </div>
 
               {/* Card */}
-              <div className="rounded-xl border border-border/40 bg-card/50 backdrop-blur-sm overflow-hidden transition-all duration-200 hover:border-border/60 hover:shadow-lg hover:shadow-primary/[0.03]">
+              <div className="rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/[0.04]">
                 {/* Trigger */}
                 <button
                   onClick={() => toggle(i)}
-                  className="flex items-center gap-3 p-3.5 w-full text-left group"
+                  className="flex items-center gap-3 p-4 w-full text-left group"
                 >
                   {/* Thumbnail preview */}
-                  <div className="shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-muted/30 border border-border/30 transition-transform duration-200 group-hover:scale-105">
+                  <div className="shrink-0 w-12 h-12 lg:w-14 lg:h-14 rounded-xl overflow-hidden bg-muted/20 border border-border/20 transition-transform duration-200 group-hover:scale-105">
                     <img
                       src={c.thumbnail}
                       alt={`Print ${c.segment}`}
@@ -186,7 +187,7 @@ const ProofSection = () => {
                     >
                       {c.segment}
                     </span>
-                    <p className="text-sm font-bold text-foreground leading-snug truncate">
+                    <p className="text-sm lg:text-base font-bold text-foreground leading-snug truncate">
                       {c.headline}
                     </p>
                     <p className="text-[11px] text-muted-foreground leading-snug line-clamp-1">
@@ -213,7 +214,7 @@ const ProofSection = () => {
                       className="overflow-hidden"
                     >
                       {/* Desktop: side-by-side | Mobile: stacked */}
-                      <div className="px-3.5 pb-4 flex flex-col lg:flex-row gap-4">
+                      <div className="px-4 pb-4 flex flex-col lg:flex-row gap-4">
                         {/* Text + bullets + CTA */}
                         <div className="flex flex-col gap-3 lg:flex-1 lg:min-w-0">
                           <ul className="flex flex-col gap-1.5">
@@ -244,8 +245,8 @@ const ProofSection = () => {
                         </div>
 
                         {/* Inline screenshot */}
-                        <div className="relative group lg:w-[280px] lg:shrink-0">
-                          <div className="w-full rounded-xl overflow-hidden border border-border/40 bg-muted/20">
+                        <div className="relative group lg:w-[240px] lg:shrink-0">
+                          <div className="w-full rounded-xl overflow-hidden border border-border/30 bg-muted/10">
                             <img
                               src={c.thumbnail}
                               alt={`Screenshot ${c.segment}`}
