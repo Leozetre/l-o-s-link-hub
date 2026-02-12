@@ -41,32 +41,39 @@ const Index = () => {
           </aside>
 
           {/* Right column — scrollable content */}
-          <main className="flex-1 max-w-[560px] lg:max-w-none mt-6 lg:mt-0 mx-auto lg:mx-0">
+           <main className="flex-1 max-w-[560px] lg:max-w-none mt-6 lg:mt-0 mx-auto lg:mx-0">
             <DesktopNav />
 
-            <SectionReveal>
-              <SocialProof />
-            </SectionReveal>
+            {/* Row 1: Social proof + Niche cases side by side */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+              <SectionReveal>
+                <SocialProof />
+              </SectionReveal>
+              <SectionReveal id="cases">
+                <NicheCases />
+              </SectionReveal>
+            </div>
 
             <SectionReveal>
               <ProofSection />
             </SectionReveal>
 
-            <SectionReveal id="cases">
-              <NicheCases />
-            </SectionReveal>
-
-            <SectionReveal id="produtos">
-              <ProductsSection />
-            </SectionReveal>
-
-            <SectionReveal id="servico">
-              <SecondaryLinks />
-            </SectionReveal>
-
-            <SectionReveal id="conteudo">
-              <ChannelsSection />
-            </SectionReveal>
+            {/* Row 2: Products + Channels/Service side by side */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
+              <div className="lg:col-span-3">
+                <SectionReveal id="produtos">
+                  <ProductsSection />
+                </SectionReveal>
+              </div>
+              <div className="lg:col-span-2 flex flex-col gap-4">
+                <SectionReveal id="servico">
+                  <SecondaryLinks />
+                </SectionReveal>
+                <SectionReveal id="conteudo">
+                  <ChannelsSection />
+                </SectionReveal>
+              </div>
+            </div>
 
             <Footer />
           </main>

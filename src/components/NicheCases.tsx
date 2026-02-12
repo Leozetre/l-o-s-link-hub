@@ -66,7 +66,7 @@ const NicheCases = () => {
   const active = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section className="flex flex-col gap-3 mb-8">
+    <section className="flex flex-col gap-3 mb-4 lg:mb-0">
       <h2 className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1">
         Cases por nicho
       </h2>
