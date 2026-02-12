@@ -145,7 +145,7 @@ const ProofSection = () => {
         {/* Vertical timeline line */}
         <div className="absolute left-[11px] lg:left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
 
-        <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {cases.map((c, i) => (
             <div key={c.id} className="relative pl-8 lg:pl-10">
               {/* Timeline node */}
