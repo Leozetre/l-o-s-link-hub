@@ -58,19 +58,9 @@ const Index = () => {
               <ProofSection />
             </SectionReveal>
 
-            {/* Row 3: Products + Service/Content — horizontal grouping */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
-              <div className="md:col-span-1 lg:col-span-3">
-                <SectionReveal id="produtos">
-                  <ProductsSection />
-                </SectionReveal>
-              </div>
-              <div className="md:col-span-1 lg:col-span-2 flex flex-col gap-4">
-                <SectionReveal id="servico">
-                  <SecondaryLinks />
-                </SectionReveal>
-              </div>
-            </div>
+            <SectionReveal id="servico">
+              <SecondaryLinks />
+            </SectionReveal>
 
             <Footer />
           </main>
