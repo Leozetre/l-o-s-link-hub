@@ -25,7 +25,7 @@ const FloatingCTAs = () => {
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-2"
             style={{
-              background: "linear-gradient(to top, hsl(0 0% 7% / 0.95), transparent)",
+              background: "linear-gradient(to top, hsl(var(--background) / 0.95), transparent)",
             }}
           >
             <div className="flex gap-2">

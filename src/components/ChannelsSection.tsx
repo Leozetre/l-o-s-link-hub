@@ -15,7 +15,7 @@ const ChannelLink = ({ title, subtitle, icon, href, trackName, accentColor, grad
   <button
     onClick={() => handleTrackedClick(href, trackName, "canal")}
     className="group relative flex items-center justify-between w-full p-4 rounded-2xl border border-border/50 transition-all duration-300 hover:border-transparent overflow-hidden text-left"
-    style={{ background: `linear-gradient(135deg, hsl(0 0% 10%), ${gradientTo})` }}
+    style={{ background: `linear-gradient(135deg, hsl(var(--card)), ${gradientTo})` }}
   >
     <div className="flex items-center gap-3 relative z-10 transition-transform duration-300 group-hover:translate-x-1">
       <div className="flex items-center justify-center h-10 w-10 rounded-lg shrink-0" style={{ border: `1px solid ${accentColor}25` }}>

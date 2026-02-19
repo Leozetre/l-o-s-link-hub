@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 20%;
+    --background: 220 14% 96%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+    --popover-foreground: 0 0% 15%;
 
     --primary: 168 100% 33%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
+    --secondary: 220 14% 92%;
     --secondary-foreground: 0 0% 20%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 220 14% 90%;
+    --muted-foreground: 0 0% 40%;
 
     --accent: 168 100% 33%;
     --accent-foreground: 0 0% 100%;
@@ -30,16 +30,16 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 85%;
-    --input: 0 0% 85%;
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
     --ring: 168 100% 33%;
 
     --radius: 0.5rem;
 
-    --link-bg: 0 0% 7%;
-    --link-border: 0 0% 20%;
-    --link-text: 0 0% 92%;
-    --link-hover-shadow: 0 8px 25px -8px hsl(168 100% 33% / 0.3);
+    --link-bg: 0 0% 100%;
+    --link-border: 0 0% 80%;
+    --link-text: 0 0% 15%;
+    --link-hover-shadow: 0 8px 25px -8px hsl(168 100% 33% / 0.2);
   }
 
   .dark {
@@ -93,6 +93,19 @@
 .animated-gradient {
   background: linear-gradient(
     135deg,
+    hsl(var(--background)) 0%,
+    hsl(168 30% 6%) 25%,
+    hsl(var(--background)) 50%,
+    hsl(200 20% 5%) 75%,
+    hsl(var(--background)) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+.dark .animated-gradient {
+  background: linear-gradient(
+    135deg,
     hsl(0 0% 5%) 0%,
     hsl(168 30% 6%) 25%,
     hsl(0 0% 7%) 50%,
@@ -101,6 +114,30 @@
   );
   background-size: 400% 400%;
   animation: gradient-shift 20s ease infinite;
+}
+
+:root .animated-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(220 14% 96%) 0%,
+    hsl(220 14% 93%) 25%,
+    hsl(220 14% 96%) 50%,
+    hsl(210 14% 94%) 75%,
+    hsl(220 14% 96%) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+:root.dark .animated-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(0 0% 5%) 0%,
+    hsl(168 30% 6%) 25%,
+    hsl(0 0% 7%) 50%,
+    hsl(200 20% 5%) 75%,
+    hsl(0 0% 5%) 100%
+  );
 }
 
 @keyframes gradient-shift {
