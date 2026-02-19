@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { trackEvent } from "@/lib/tracking";
+import caseImobiliarioVirada from "@/assets/case-imobiliario-virada.png";
 import {
   ArrowRight,
   Building2,
@@ -52,7 +53,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero estruturar meu funil",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
-        screenshotUrl: "",
+        screenshotUrl: caseImobiliarioVirada,
       },
     ],
   },
