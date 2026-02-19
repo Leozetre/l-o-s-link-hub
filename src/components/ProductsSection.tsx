@@ -42,7 +42,7 @@ const ProductCard = ({ title, subtitle, icon, fallbackIcon, href, trackName, acc
     onClick={() => handleTrackedClick(href, trackName, "produto")}
     className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl border border-border/50 transition-all duration-300 hover:border-transparent overflow-hidden text-left"
     style={{
-      background: `linear-gradient(135deg, hsl(0 0% 10%), hsl(168 10% 8%))`,
+      background: `linear-gradient(135deg, hsl(var(--card)), hsl(var(--secondary)))`,
     }}
   >
     <div
@@ -55,7 +55,7 @@ const ProductCard = ({ title, subtitle, icon, fallbackIcon, href, trackName, acc
         className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105 overflow-visible p-2"
         style={{
           border: `1px solid ${accentColor}25`,
-          background: `hsl(0 0% 8% / 0.3)`,
+          background: `hsl(var(--secondary) / 0.5)`,
         }}
       >
         {icon}
