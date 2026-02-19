@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { handleTrackedClick } from "@/lib/tracking";
 import { trackEvent } from "@/lib/tracking";
 import {
   ArrowRight,
   Building2,
   ChevronDown,
   ExternalLink,
+  ImageOff,
   Stethoscope,
   Store,
   ZoomIn,
@@ -21,7 +21,8 @@ interface CaseCard {
   bullets: [string, string, string];
   ctaLabel: string;
   whatsappUrl: string;
-  thumbnail: string;
+  /** Path to uploaded screenshot – leave empty to show fallback */
+  screenshotUrl?: string;
 }
 
 interface NicheTab {
@@ -31,6 +32,7 @@ interface NicheTab {
   cases: CaseCard[];
 }
 
+// ── Data ────────────────────────────────────────────────────────────
 const tabs: NicheTab[] = [
   {
     id: "imobiliario",
@@ -50,7 +52,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero estruturar meu funil",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
-        thumbnail: "/placeholder.svg",
+        screenshotUrl: "",
       },
     ],
   },
@@ -72,7 +74,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero um plano para minha clínica",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20Odonto%20(cl%C3%ADnica%20acess%C3%ADvel).%20Quero%20estruturar%20capta%C3%A7%C3%A3o%20por%20WhatsApp.%20Cidade%3A%20__.%20Procedimento%20foco%3A%20__.%20Meta%20de%20agenda%3A%20__.",
-        thumbnail: "/placeholder.svg",
+        screenshotUrl: "",
       },
       {
         id: "odonto-premium",
@@ -87,7 +89,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero atrair pacientes premium",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20Odonto%20premium.%20Quero%20atrair%20pacientes%20mais%20qualificados.%20Cidade%3A%20__.%20Ticket%20m%C3%A9dio%3A%20__.%20Procedimento%20foco%3A%20__.",
-        thumbnail: "/placeholder.svg",
+        screenshotUrl: "",
       },
       {
         id: "odonto-zero",
@@ -102,7 +104,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero um plano pro meu caso",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20dentista%20(lentes%2FHOF%2Fpreenchimento).%20Quero%20um%20plano%20de%20capta%C3%A7%C3%A3o%20pro%20meu%20caso.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Meta%20de%20agenda%3A%20__.",
-        thumbnail: "/placeholder.svg",
+        screenshotUrl: "",
       },
     ],
   },
@@ -124,7 +126,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero escalar com consistência",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos.%20Quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Margem%20m%C3%A9dia%3A%20__.",
-        thumbnail: "/placeholder.svg",
+        screenshotUrl: "",
       },
     ],
   },
@@ -136,27 +138,31 @@ const segmentColors: Record<string, string> = {
   varejo: "bg-amber-500/10 text-amber-400 border-amber-500/20",
 };
 
+// ── Component ───────────────────────────────────────────────────────
 const NicheCases = () => {
   const [activeTab, setActiveTab] = useState("imobiliario");
+  // True accordion: always exactly one expanded (first by default)
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [zoomedId, setZoomedId] = useState<string | null>(null);
 
   const active = tabs.find((t) => t.id === activeTab)!;
 
-  // Mobile: show max 2 cases unless "Mostrar mais" is clicked
-  // Desktop: show all
   const MOBILE_LIMIT = 2;
+
+  // Derive effective expanded id: if none set, default to first case
+  const effectiveExpandedId = expandedId ?? active.cases[0]?.id ?? null;
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
-    setExpandedId(null);
+    setExpandedId(null); // reset → first case auto-expands
     setShowAll(false);
   };
 
   const toggle = (caseId: string, caseData: CaseCard) => {
-    if (expandedId === caseId) {
-      setExpandedId(null);
+    if (effectiveExpandedId === caseId) {
+      // Clicking the already-open one: collapse all (no case open)
+      setExpandedId("__none__");
     } else {
       trackEvent({
         event_name: "case_expand",
@@ -178,6 +184,7 @@ const NicheCases = () => {
   };
 
   const handleZoom = (c: CaseCard) => {
+    if (!c.screenshotUrl) return;
     trackEvent({
       event_name: "screenshot_zoom",
       button_name: c.id,
@@ -185,6 +192,8 @@ const NicheCases = () => {
     });
     setZoomedId(c.id);
   };
+
+  const hasScreenshot = (url?: string) => !!url && url.length > 0;
 
   return (
     <section id="cases" className="flex flex-col gap-4 mb-8">
@@ -210,15 +219,10 @@ const NicheCases = () => {
         ))}
       </div>
 
-      {/* Case cards */}
+      {/* Case cards — true accordion */}
       <div className="flex flex-col gap-3">
         {active.cases.map((c, i) => {
-          const isExpanded = expandedId === c.id;
-          // Mobile: auto-expand first case
-          const isAutoExpanded = i === 0 && expandedId === null;
-          const showExpanded = isExpanded || isAutoExpanded;
-
-          // Mobile: hide cases beyond limit unless showAll
+          const isExpanded = effectiveExpandedId === c.id;
           const hiddenOnMobile = !showAll && i >= MOBILE_LIMIT;
 
           return (
@@ -227,7 +231,7 @@ const NicheCases = () => {
               className={`${hiddenOnMobile ? "hidden md:block" : ""}`}
             >
               <div className="rounded-2xl border border-border/30 bg-card/40 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/[0.04]">
-                {/* Collapsed header — always visible */}
+                {/* Header — always visible */}
                 <button
                   onClick={() => toggle(c.id, c)}
                   className="flex items-center gap-3 p-4 w-full text-left group"
@@ -249,14 +253,14 @@ const NicheCases = () => {
                   <ChevronDown
                     size={16}
                     className={`shrink-0 text-muted-foreground transition-transform duration-300 ${
-                      showExpanded ? "rotate-180" : ""
+                      isExpanded ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {/* Expanded content */}
                 <AnimatePresence initial={false}>
-                  {showExpanded && (
+                  {isExpanded && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
@@ -298,26 +302,37 @@ const NicheCases = () => {
                           </button>
                         </div>
 
-                        {/* Inline screenshot */}
-                        <div className="relative group/img lg:w-[240px] lg:shrink-0">
-                          <div className="w-full rounded-xl overflow-hidden border border-border/30 bg-muted/10">
-                            <img
-                              src={c.thumbnail}
-                              alt={`Screenshot ${c.badge}`}
-                              loading="lazy"
-                              className="w-full h-auto"
-                            />
-                          </div>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleZoom(c);
-                            }}
-                            className="absolute top-2 right-2 p-1.5 rounded-lg bg-background/70 backdrop-blur-sm border border-border/30 text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="Ampliar screenshot"
-                          >
-                            <ZoomIn size={14} />
-                          </button>
+                        {/* Screenshot area */}
+                        <div className="relative group/img lg:w-[320px] lg:shrink-0">
+                          {hasScreenshot(c.screenshotUrl) ? (
+                            <>
+                              <div className="w-full rounded-xl overflow-hidden border border-border/30 bg-muted/10 flex items-center justify-center">
+                                <img
+                                  src={c.screenshotUrl}
+                                  alt={`Screenshot ${c.badge}`}
+                                  loading="lazy"
+                                  className="w-full h-auto object-contain"
+                                />
+                              </div>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleZoom(c);
+                                }}
+                                className="absolute top-2 right-2 p-1.5 rounded-lg bg-background/70 backdrop-blur-sm border border-border/30 text-muted-foreground hover:text-foreground transition-colors"
+                                aria-label="Ampliar screenshot"
+                              >
+                                <ZoomIn size={14} />
+                              </button>
+                            </>
+                          ) : (
+                            <div className="w-full rounded-xl border border-dashed border-border/40 bg-muted/5 flex items-center justify-center gap-2 py-8 lg:py-12">
+                              <ImageOff size={16} className="text-muted-foreground/50" />
+                              <span className="text-[11px] text-muted-foreground/50 font-medium">
+                                Imagem não configurada
+                              </span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </motion.div>
@@ -328,7 +343,7 @@ const NicheCases = () => {
           );
         })}
 
-        {/* "Mostrar mais" — mobile only, when there are hidden cases */}
+        {/* "Mostrar mais" — mobile only */}
         {!showAll && active.cases.length > MOBILE_LIMIT && (
           <button
             onClick={() => setShowAll(true)}
@@ -363,14 +378,17 @@ const NicheCases = () => {
               >
                 <X size={20} />
               </button>
-              <img
-                src={
-                  active.cases.find((c) => c.id === zoomedId)?.thumbnail ||
-                  "/placeholder.svg"
-                }
-                alt="Screenshot ampliado"
-                className="w-full h-auto rounded-2xl border border-border/40"
-              />
+              {(() => {
+                const zoomedCase = active.cases.find((c) => c.id === zoomedId);
+                const src = zoomedCase?.screenshotUrl;
+                return hasScreenshot(src) ? (
+                  <img
+                    src={src}
+                    alt="Screenshot ampliado"
+                    className="w-full h-auto object-contain rounded-2xl border border-border/40"
+                  />
+                ) : null;
+              })()}
             </motion.div>
           </motion.div>
         )}
