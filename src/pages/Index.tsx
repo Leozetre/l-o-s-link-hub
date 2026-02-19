@@ -6,7 +6,7 @@ import SocialProof from "@/components/SocialProof";
 import ProofSection from "@/components/ProofSection";
 import NicheCases from "@/components/NicheCases";
 import ProductsSection from "@/components/ProductsSection";
-import ChannelsSection from "@/components/ChannelsSection";
+
 import SecondaryLinks from "@/components/SecondaryLinks";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -68,9 +68,6 @@ const Index = () => {
               <div className="md:col-span-1 lg:col-span-2 flex flex-col gap-4">
                 <SectionReveal id="servico">
                   <SecondaryLinks />
-                </SectionReveal>
-                <SectionReveal id="conteudo">
-                  <ChannelsSection />
                 </SectionReveal>
               </div>
             </div>
