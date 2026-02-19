@@ -33,6 +33,28 @@ interface NicheTab {
 
 const tabs: NicheTab[] = [
   {
+    id: "imobiliario",
+    label: "Imobiliário",
+    icon: <Building2 size={14} />,
+    cases: [
+      {
+        id: "imobiliario-virada",
+        badge: "Virada",
+        headline: "Virada em 1 ano: vendas e VGV",
+        context: "Captação, qualificação e rotina comercial.",
+        bullets: [
+          "Começou do zero no digital",
+          "Oferta + criativos + funil de atendimento",
+          "Consistência em oportunidades e vendas",
+        ],
+        ctaLabel: "Quero estruturar meu funil",
+        whatsappUrl:
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
+        thumbnail: "/placeholder.svg",
+      },
+    ],
+  },
+  {
     id: "odonto",
     label: "Odonto",
     icon: <Stethoscope size={14} />,
@@ -85,28 +107,6 @@ const tabs: NicheTab[] = [
     ],
   },
   {
-    id: "imobiliario",
-    label: "Imobiliário",
-    icon: <Building2 size={14} />,
-    cases: [
-      {
-        id: "imobiliario-virada",
-        badge: "Virada",
-        headline: "Virada em 1 ano: vendas e VGV",
-        context: "Captação, qualificação e rotina comercial.",
-        bullets: [
-          "Começou do zero no digital",
-          "Oferta + criativos + funil de atendimento",
-          "Consistência em oportunidades e vendas",
-        ],
-        ctaLabel: "Quero estruturar meu funil",
-        whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
-        thumbnail: "/placeholder.svg",
-      },
-    ],
-  },
-  {
     id: "varejo",
     label: "Varejo",
     icon: <Store size={14} />,
@@ -137,7 +137,7 @@ const segmentColors: Record<string, string> = {
 };
 
 const NicheCases = () => {
-  const [activeTab, setActiveTab] = useState("odonto");
+  const [activeTab, setActiveTab] = useState("imobiliario");
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [zoomedId, setZoomedId] = useState<string | null>(null);
