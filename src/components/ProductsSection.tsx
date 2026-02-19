@@ -52,10 +52,10 @@ const ProductCard = ({ title, subtitle, icon, fallbackIcon, href, trackName, acc
 
     <div className="flex items-center gap-4 relative z-10 transition-transform duration-300 group-hover:translate-x-2">
       <div
-        className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105 p-1.5"
+        className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105 overflow-visible p-2"
         style={{
           border: `1px solid ${accentColor}25`,
-          background: `hsl(0 0% 8% / 0.5)`,
+          background: `hsl(0 0% 8% / 0.3)`,
         }}
       >
         {icon}
