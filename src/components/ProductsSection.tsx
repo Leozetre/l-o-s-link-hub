@@ -1,5 +1,6 @@
 import { handleTrackedClick } from "@/lib/tracking";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap, Package } from "lucide-react";
+import { useState } from "react";
 import minimalProLogo from "@/assets/minimal-pro-logo.png";
 import minimalAcademyLogo from "@/assets/minimal-academy-logo.png";
 
@@ -7,12 +8,36 @@ interface ProductCardProps {
   title: string;
   subtitle: string;
   icon: React.ReactNode;
+  fallbackIcon: React.ReactNode;
   href: string;
   trackName: string;
   accentColor: string;
 }
 
-const ProductCard = ({ title, subtitle, icon, href, trackName, accentColor }: ProductCardProps) => (
+const LogoImage = ({
+  src,
+  alt,
+  fallback,
+}: {
+  src: string;
+  alt: string;
+  fallback: React.ReactNode;
+}) => {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) return <>{fallback}</>;
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={() => setFailed(true)}
+      className="h-full w-full object-contain"
+    />
+  );
+};
+
+const ProductCard = ({ title, subtitle, icon, fallbackIcon, href, trackName, accentColor }: ProductCardProps) => (
   <button
     onClick={() => handleTrackedClick(href, trackName, "produto")}
     className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl border border-border/50 transition-all duration-300 hover:border-transparent overflow-hidden text-left"
@@ -27,8 +52,11 @@ const ProductCard = ({ title, subtitle, icon, href, trackName, accentColor }: Pr
 
     <div className="flex items-center gap-4 relative z-10 transition-transform duration-300 group-hover:translate-x-2">
       <div
-        className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105"
-        style={{ border: `1px solid ${accentColor}25` }}
+        className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-xl shrink-0 transition-all duration-300 group-hover:scale-105 p-1.5"
+        style={{
+          border: `1px solid ${accentColor}25`,
+          background: `hsl(0 0% 8% / 0.5)`,
+        }}
       >
         {icon}
       </div>
@@ -51,9 +79,8 @@ const ProductsSection = () => {
     {
       title: "Minimal Pro",
       subtitle: "Mentoria 1 a 1 para gestores de tráfego e players do mercado digital",
-      icon: (
-        <img src={minimalProLogo} alt="Minimal Pro" className="h-10 w-auto max-w-[6rem] object-contain mix-blend-screen" />
-      ),
+      icon: <LogoImage src={minimalProLogo} alt="Minimal Pro" fallback={<Package size={24} className="text-primary" />} />,
+      fallbackIcon: <Package size={24} className="text-primary" />,
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20mentorado%20da%20Minimal%20PRO.",
       trackName: "minimal_pro",
       accentColor: "#00A98F",
@@ -61,9 +88,8 @@ const ProductsSection = () => {
     {
       title: "Minimal Academy",
       subtitle: "Tráfego pago, negócios digitais e networking em um só lugar",
-      icon: (
-        <img src={minimalAcademyLogo} alt="Minimal Academy" className="h-10 w-auto max-w-[6rem] object-contain mix-blend-screen" />
-      ),
+      icon: <LogoImage src={minimalAcademyLogo} alt="Minimal Academy" fallback={<Package size={24} className="text-primary" />} />,
+      fallbackIcon: <Package size={24} className="text-primary" />,
       href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20aluno%20da%20Minimal%20Academy.",
       trackName: "minimal_academy",
       accentColor: "#00A98F",
@@ -71,8 +97,9 @@ const ProductsSection = () => {
     {
       title: "App Estratégico",
       subtitle: "Ferramenta prática com estratégias aplicáveis para gestores de tráfego",
-      icon: <Zap size={26} className="text-amber-400" />,
-      href: "#", // Placeholder — user will provide URL
+      icon: <Zap size={26} className="text-accent" />,
+      fallbackIcon: <Zap size={26} className="text-accent" />,
+      href: "#",
       trackName: "app_estrategico",
       accentColor: "#F59E0B",
     },
