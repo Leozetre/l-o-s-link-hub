@@ -3,6 +3,7 @@ import { trackEvent } from "@/lib/tracking";
 import caseImobiliarioVirada from "@/assets/case-imobiliario-virada.png";
 import caseOdontoAcessivel from "@/assets/case-odonto-acessivel.png";
 import caseOdontoPremium from "@/assets/case-odonto-premium.png";
+import caseOdontoZero from "@/assets/case-odonto-zero.png";
 import {
   ArrowRight,
   Building2,
@@ -107,7 +108,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero um plano pro meu caso",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20dentista%20(lentes%2FHOF%2Fpreenchimento).%20Quero%20um%20plano%20de%20capta%C3%A7%C3%A3o%20pro%20meu%20caso.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Meta%20de%20agenda%3A%20__.",
-        screenshotUrl: "",
+        screenshotUrl: caseOdontoZero,
       },
     ],
   },
