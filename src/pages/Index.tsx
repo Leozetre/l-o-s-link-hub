@@ -2,12 +2,8 @@ import { useEffect } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import StickyProfile from "@/components/StickyProfile";
 import DesktopNav from "@/components/DesktopNav";
-import SocialProof from "@/components/SocialProof";
-import ProofSection from "@/components/ProofSection";
 import NicheCases from "@/components/NicheCases";
 import ProductsSection from "@/components/ProductsSection";
-
-import SecondaryLinks from "@/components/SecondaryLinks";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
 import HeroCTA from "@/components/HeroCTA";
@@ -27,7 +23,6 @@ const Index = () => {
       <FloatingCTAs />
 
       <div className="min-h-screen px-4 py-8 lg:py-12">
-        {/* Desktop: 2-col | Tablet: 2-col compact | Mobile: single col */}
         <div className="mx-auto max-w-7xl lg:flex lg:gap-10 xl:gap-14">
           {/* Left column — sticky on desktop */}
           <aside className="lg:w-[320px] xl:w-[340px] lg:shrink-0 lg:sticky lg:top-8 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto scrollbar-hide">
@@ -39,23 +34,13 @@ const Index = () => {
             </div>
           </aside>
 
-          {/* Right column — scrollable content, wider on desktop */}
+          {/* Right column — scrollable content */}
           <main className="flex-1 max-w-[560px] md:max-w-none mt-6 lg:mt-0 mx-auto lg:mx-0">
             <DesktopNav />
 
-            {/* Row 1: Credibility — Social proof + Niche cases side by side */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 mb-6">
-              <SectionReveal>
-                <SocialProof />
-              </SectionReveal>
-              <SectionReveal id="cases">
-                <NicheCases />
-              </SectionReveal>
-            </div>
-
-            {/* Row 2: Results timeline — full width, 2-col cards on desktop */}
-            <SectionReveal>
-              <ProofSection />
+            {/* Cases por nicho — unified proof section */}
+            <SectionReveal id="cases">
+              <NicheCases />
             </SectionReveal>
 
             <SectionReveal id="produtos">
