@@ -51,8 +51,8 @@ const StickyProfile = () => {
       >
         <MessageCircle size={20} className="shrink-0" />
         <div className="flex flex-col items-start">
-          <span className="font-bold text-base leading-tight">Diagnóstico rápido via WhatsApp</span>
-          <span className="text-[10px] font-medium opacity-70 leading-tight">Para empresários</span>
+          <span className="font-bold text-base leading-tight">Assessoria de Marketing — WhatsApp</span>
+          <span className="text-[10px] font-medium opacity-70 leading-tight line-clamp-2">Para empresários (imobiliárias, clínicas e negócios locais)</span>
         </div>
       </button>
 
@@ -68,8 +68,8 @@ const StickyProfile = () => {
       >
         <GraduationCap size={18} className="shrink-0" />
         <div className="flex flex-col items-start">
-          <span className="font-bold text-sm leading-tight">Aplicar para Mentoria — Minimal Pro</span>
-          <span className="text-[10px] font-medium opacity-60 leading-tight">Para gestores de tráfego e players do digital</span>
+          <span className="font-bold text-sm leading-tight">Minimal Pro — Mentoria</span>
+          <span className="text-[10px] font-medium opacity-60 leading-tight line-clamp-2">Para gestores de tráfego e players do digital</span>
         </div>
       </button>
     </div>
