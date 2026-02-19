@@ -2,6 +2,7 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/tracking";
 import caseImobiliarioVirada from "@/assets/case-imobiliario-virada.png";
 import caseOdontoAcessivel from "@/assets/case-odonto-acessivel.png";
+import caseOdontoPremium from "@/assets/case-odonto-premium.png";
 import {
   ArrowRight,
   Building2,
@@ -91,7 +92,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero atrair pacientes premium",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20Odonto%20premium.%20Quero%20atrair%20pacientes%20mais%20qualificados.%20Cidade%3A%20__.%20Ticket%20m%C3%A9dio%3A%20__.%20Procedimento%20foco%3A%20__.",
-        screenshotUrl: "",
+        screenshotUrl: caseOdontoPremium,
       },
       {
         id: "odonto-zero",
