@@ -4,9 +4,13 @@ import { useState } from "react";
 import minimalProLogo from "@/assets/minimal-pro-logo.png";
 import minimalAcademyLogo from "@/assets/minimal-academy-logo.png";
 
+// Future-proof: replace with dedicated asset when available
+const minimalCoreLogo = minimalAcademyLogo;
+
 interface ProductCardProps {
   title: string;
   subtitle: string;
+  badge?: string;
   icon: React.ReactNode;
   fallbackIcon: React.ReactNode;
   href: string;
@@ -37,7 +41,7 @@ const LogoImage = ({
   );
 };
 
-const ProductCard = ({ title, subtitle, icon, fallbackIcon, href, trackName, accentColor }: ProductCardProps) => (
+const ProductCard = ({ title, subtitle, badge, icon, fallbackIcon, href, trackName, accentColor }: ProductCardProps) => (
   <button
     onClick={() => handleTrackedClick(href, trackName, "produto")}
     className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl border border-border/50 transition-all duration-300 hover:border-transparent overflow-hidden text-left"
@@ -61,7 +65,14 @@ const ProductCard = ({ title, subtitle, icon, fallbackIcon, href, trackName, acc
         {icon}
       </div>
       <div className="flex flex-col gap-0.5">
-        <span className="text-lg sm:text-xl leading-tight font-bold text-link-text">{title}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-lg sm:text-xl leading-tight font-bold text-link-text">{title}</span>
+          {badge && (
+            <span className="text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 leading-none">
+              {badge}
+            </span>
+          )}
+        </div>
         <span className="text-xs sm:text-sm text-muted-foreground font-medium">{subtitle}</span>
       </div>
     </div>
@@ -95,13 +106,14 @@ const ProductsSection = () => {
       accentColor: "#00A98F",
     },
     {
-      title: "App Estratégico",
+      title: "MinimalCore.os",
       subtitle: "Ferramenta prática com estratégias aplicáveis para gestores de tráfego",
-      icon: <Zap size={26} className="text-accent" />,
-      fallbackIcon: <Zap size={26} className="text-accent" />,
+      badge: "Em breve",
+      icon: <LogoImage src={minimalCoreLogo} alt="MinimalCore.os" fallback={<Zap size={24} className="text-primary" />} />,
+      fallbackIcon: <Zap size={24} className="text-primary" />,
       href: "#",
-      trackName: "app_estrategico",
-      accentColor: "#F59E0B",
+      trackName: "minimal_core",
+      accentColor: "#00A98F",
     },
   ];
 
