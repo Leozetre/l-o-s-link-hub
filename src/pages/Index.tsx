@@ -22,7 +22,7 @@ const Index = () => {
       <ThemeToggle />
       <FloatingCTAs />
 
-      <div className="min-h-screen px-4 py-8 lg:py-12">
+      <div className="min-h-screen px-4 py-8 lg:py-12 pb-24 lg:pb-12">
         <div className="mx-auto max-w-7xl lg:flex lg:gap-10 xl:gap-14">
           {/* Left column — sticky on desktop */}
           <aside className="lg:w-[320px] xl:w-[340px] lg:shrink-0 lg:sticky lg:top-8 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto scrollbar-hide">

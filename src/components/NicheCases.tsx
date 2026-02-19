@@ -144,9 +144,9 @@ const NicheCases = () => {
 
   const active = tabs.find((t) => t.id === activeTab)!;
 
-  // On mobile: show first case only unless "Mostrar mais" is clicked
-  // On desktop: show all
-  const visibleCases = showAll ? active.cases : active.cases;
+  // Mobile: show max 2 cases unless "Mostrar mais" is clicked
+  // Desktop: show all
+  const MOBILE_LIMIT = 2;
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
@@ -212,14 +212,14 @@ const NicheCases = () => {
 
       {/* Case cards */}
       <div className="flex flex-col gap-3">
-        {visibleCases.map((c, i) => {
+        {active.cases.map((c, i) => {
           const isExpanded = expandedId === c.id;
           // Mobile: auto-expand first case
           const isAutoExpanded = i === 0 && expandedId === null;
           const showExpanded = isExpanded || isAutoExpanded;
 
-          // Mobile: hide cases beyond first unless showAll
-          const hiddenOnMobile = !showAll && i > 0;
+          // Mobile: hide cases beyond limit unless showAll
+          const hiddenOnMobile = !showAll && i >= MOBILE_LIMIT;
 
           return (
             <div
@@ -329,12 +329,12 @@ const NicheCases = () => {
         })}
 
         {/* "Mostrar mais" — mobile only, when there are hidden cases */}
-        {!showAll && active.cases.length > 1 && (
+        {!showAll && active.cases.length > MOBILE_LIMIT && (
           <button
             onClick={() => setShowAll(true)}
             className="md:hidden flex items-center justify-center gap-1.5 text-xs font-semibold text-primary py-2 transition-colors hover:text-primary/80"
           >
-            Mostrar mais ({active.cases.length - 1})
+            Mostrar mais ({active.cases.length - MOBILE_LIMIT})
             <ArrowRight size={12} />
           </button>
         )}
