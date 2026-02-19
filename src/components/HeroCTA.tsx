@@ -56,7 +56,7 @@ const HeroCTA = () => {
         <MessageCircle size={20} className="shrink-0" />
         <div className="flex flex-col items-start">
           <span className="font-bold text-base sm:text-lg leading-tight">Diagnóstico rápido via WhatsApp</span>
-          <span className="text-[10px] sm:text-[11px] font-medium opacity-70 leading-tight truncate">Para empresas</span>
+          <span className="text-[10px] sm:text-[11px] font-medium opacity-70 leading-tight truncate">Para empresários</span>
         </div>
       </button>
 
@@ -73,7 +73,7 @@ const HeroCTA = () => {
         <GraduationCap size={18} className="shrink-0" />
         <div className="flex flex-col items-start">
           <span className="font-bold text-sm sm:text-base leading-tight">Aplicar para Mentoria — Minimal Pro</span>
-          <span className="text-[10px] sm:text-[11px] font-medium opacity-60 leading-tight truncate">Para gestores e players</span>
+          <span className="text-[10px] sm:text-[11px] font-medium opacity-60 leading-tight truncate">Para gestores de tráfego e players do digital</span>
         </div>
       </button>
     </section>
