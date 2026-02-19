@@ -43,14 +43,17 @@ const StickyProfile = () => {
             "primary"
           )
         }
-        className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-2xl font-bold text-base text-primary-foreground transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+        className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-2xl text-primary-foreground transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
         style={{
           background: "linear-gradient(135deg, hsl(168 100% 33%), hsl(168 80% 28%))",
           boxShadow: "0 8px 30px -8px hsl(168 100% 33% / 0.4)",
         }}
       >
-        <MessageCircle size={20} />
-        Diagnóstico rápido via WhatsApp
+        <MessageCircle size={20} className="shrink-0" />
+        <div className="flex flex-col items-start">
+          <span className="font-bold text-base leading-tight">Diagnóstico rápido via WhatsApp</span>
+          <span className="text-[10px] font-medium opacity-70 leading-tight">Para empresas</span>
+        </div>
       </button>
 
       <button
@@ -61,10 +64,13 @@ const StickyProfile = () => {
             "primary"
           )
         }
-        className="w-full flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl font-bold text-sm border border-primary/30 text-primary bg-primary/5 transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 active:scale-[0.98]"
+        className="w-full flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border border-primary/30 text-primary bg-primary/5 transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 active:scale-[0.98]"
       >
-        <GraduationCap size={18} />
-        Aplicar para Mentoria — Minimal Pro
+        <GraduationCap size={18} className="shrink-0" />
+        <div className="flex flex-col items-start">
+          <span className="font-bold text-sm leading-tight">Aplicar para Mentoria — Minimal Pro</span>
+          <span className="text-[10px] font-medium opacity-60 leading-tight">Para gestores e players</span>
+        </div>
       </button>
     </div>
   );
