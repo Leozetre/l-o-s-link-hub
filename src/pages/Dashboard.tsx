@@ -5,7 +5,7 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   LineChart, Line, PieChart, Pie, Cell, CartesianGrid,
 } from "recharts";
-import { Eye, MousePointerClick, Users, TrendingUp, AlertTriangle, Lightbulb } from "lucide-react";
+import { Eye, MousePointerClick, Users, TrendingUp, AlertTriangle, Lightbulb, Download } from "lucide-react";
 
 const COLORS = ["hsl(168,100%,33%)", "hsl(168,80%,28%)", "#F59E0B", "#EF4444", "#8B5CF6", "#EC4899"];
 const ADMIN_PASSWORD = "minimal2024";
@@ -14,21 +14,45 @@ const ADMIN_PASSWORD = "minimal2024";
 const PasswordGate = ({ onAuth }: { onAuth: () => void }) => {
   const [pw, setPw] = useState("");
   const [error, setError] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const [attempts, setAttempts] = useState(0);
+
+  const tryAuth = () => {
+    if (pw === ADMIN_PASSWORD) {
+      onAuth();
+    } else {
+      const next = attempts + 1;
+      setAttempts(next);
+      setError(true);
+      if (next >= 3) setLocked(true);
+    }
+  };
+
+  if (locked) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background px-4">
+        <div className="text-center">
+          <h1 className="text-6xl font-extrabold text-foreground mb-2">404</h1>
+          <p className="text-muted-foreground text-sm">Page not found</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-xs flex flex-col gap-4">
-        <h1 className="text-xl font-bold text-foreground text-center">Dashboard Analytics</h1>
         <input
           type="password"
-          placeholder="Senha de acesso"
+          placeholder="PIN"
           value={pw}
           onChange={(e) => { setPw(e.target.value); setError(false); }}
-          onKeyDown={(e) => { if (e.key === "Enter") { pw === ADMIN_PASSWORD ? onAuth() : setError(true); } }}
-          className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          onKeyDown={(e) => { if (e.key === "Enter") tryAuth(); }}
+          className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground text-sm text-center tracking-[0.3em] focus:outline-none focus:ring-2 focus:ring-primary"
         />
-        {error && <p className="text-xs text-destructive text-center">Senha incorreta</p>}
+        {error && <p className="text-xs text-destructive text-center">PIN incorreto</p>}
         <button
-          onClick={() => pw === ADMIN_PASSWORD ? onAuth() : setError(true)}
+          onClick={tryAuth}
           className="px-4 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-sm"
         >
           Entrar
@@ -230,7 +254,22 @@ const DashboardContent = () => {
   return (
     <div className="min-h-screen bg-background px-4 py-8">
       <div className="w-full max-w-5xl mx-auto flex flex-col gap-6">
-        <h1 className="text-2xl font-extrabold text-foreground">Dashboard — Link Hub</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-extrabold text-foreground">Dashboard — Link Hub</h1>
+          <button
+            onClick={() => {
+              const headers = ["created_at","event_name","session_id","page_path","button_name","category","href","referrer","utm_source","utm_medium","utm_campaign","utm_content","device_type"];
+              const csv = [headers.join(","), ...filtered.map(e => headers.map(h => `"${(e as any)[h] ?? ""}"`).join(","))].join("\n");
+              const blob = new Blob([csv], { type: "text/csv" });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a"); a.href = url; a.download = `hub_events_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+              URL.revokeObjectURL(url);
+            }}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-card text-foreground text-xs hover:bg-accent transition-colors"
+          >
+            <Download size={14} /> Exportar CSV
+          </button>
+        </div>
 
         {/* Filters */}
         <div className="flex flex-wrap gap-2">
