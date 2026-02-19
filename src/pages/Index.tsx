@@ -58,8 +58,8 @@ const Index = () => {
               <ProofSection />
             </SectionReveal>
 
-            <SectionReveal id="servico">
-              <SecondaryLinks />
+            <SectionReveal id="produtos">
+              <ProductsSection />
             </SectionReveal>
 
             <Footer />
