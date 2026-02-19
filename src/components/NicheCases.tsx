@@ -4,6 +4,7 @@ import caseImobiliarioVirada from "@/assets/case-imobiliario-virada.png";
 import caseOdontoAcessivel from "@/assets/case-odonto-acessivel.png";
 import caseOdontoPremium from "@/assets/case-odonto-premium.png";
 import caseOdontoZero from "@/assets/case-odonto-zero.png";
+import caseVarejoCrescimento from "@/assets/case-varejo-crescimento.png";
 import {
   ArrowRight,
   Building2,
@@ -130,7 +131,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero escalar com consistência",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos.%20Quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Margem%20m%C3%A9dia%3A%20__.",
-        screenshotUrl: "",
+        screenshotUrl: caseVarejoCrescimento,
       },
     ],
   },
