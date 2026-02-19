@@ -5,6 +5,7 @@ import caseOdontoAcessivel from "@/assets/case-odonto-acessivel.png";
 import caseOdontoPremium from "@/assets/case-odonto-premium.png";
 import caseOdontoZero from "@/assets/case-odonto-zero.png";
 import caseVarejoCrescimento from "@/assets/case-varejo-crescimento.png";
+import caseImobiliarioCorretora from "@/assets/case-imobiliario-corretora.png";
 import {
   ArrowRight,
   Building2,
@@ -58,6 +59,21 @@ const tabs: NicheTab[] = [
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
         screenshotUrl: caseImobiliarioVirada,
+      },
+      {
+        id: "imobiliario-corretora",
+        badge: "Confiança",
+        headline: "Corretora: confiança recuperada e venda de alto ticket",
+        context: "8+ meses de parceria • captação + atendimento",
+        bullets: [
+          "Veio com trauma de más agências e sem confiança no digital",
+          "Ajuste de posicionamento, criativos e rotina de WhatsApp",
+          "Venda de chácara acima de R$ 2M durante a parceria",
+        ],
+        ctaLabel: "Quero estruturar meu funil",
+        whatsappUrl:
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20corretora%20(alto%20ticket).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
+        screenshotUrl: caseImobiliarioCorretora,
       },
     ],
   },
