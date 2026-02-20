@@ -12,7 +12,7 @@ import {
   ChevronDown,
   ExternalLink,
   ImageOff,
-  Stethoscope,
+  Smile,
   Store,
   ZoomIn,
   X,
@@ -80,7 +80,7 @@ const tabs: NicheTab[] = [
   {
     id: "odonto",
     label: "Odonto",
-    icon: <Stethoscope size={14} />,
+    icon: <Smile size={14} />,
     cases: [
       {
         id: "odonto-acessivel",
