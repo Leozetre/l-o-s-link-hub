@@ -10,7 +10,7 @@ const HeroCTA = () => {
         src={profileImg}
         alt="Léo Negrão"
         className="h-20 w-20 rounded-full object-cover ring-2 ring-primary/30"
-        style={{ objectPosition: "100% 100%" }}
+        style={{ objectPosition: "115% 100%" }}
       />
 
       {/* Name & tagline */}
