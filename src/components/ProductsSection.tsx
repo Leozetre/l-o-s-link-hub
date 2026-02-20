@@ -3,9 +3,7 @@ import { ArrowRight, Zap, Package } from "lucide-react";
 import { useState } from "react";
 import minimalProLogo from "@/assets/minimal-pro-logo.png";
 import minimalAcademyLogo from "@/assets/minimal-academy-logo.png";
-
-// Future-proof: replace with dedicated asset when available
-const minimalCoreLogo = minimalAcademyLogo;
+import minimalCoreLogo from "@/assets/minimal-core-logo.png";
 
 interface ProductCardProps {
   title: string;
