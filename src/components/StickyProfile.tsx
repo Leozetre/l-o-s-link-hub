@@ -9,7 +9,7 @@ const StickyProfile = () => {
         src={profileImg}
         alt="Léo Negrão"
         className="h-20 w-20 rounded-full object-cover ring-2 ring-primary/30"
-        style={{ objectPosition: "115% 100%" }}
+        style={{ objectPosition: "125% 100%" }}
       />
 
       <div className="flex flex-col gap-1.5">
