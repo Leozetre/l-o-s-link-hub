@@ -130,12 +130,12 @@ const tabs: NicheTab[] = [
     ],
   },
   {
-    id: "varejo",
-    label: "Varejo",
+    id: "negocios-locais",
+    label: "Negócios Locais",
     icon: <Store size={14} />,
     cases: [
       {
-        id: "varejo-crescimento",
+        id: "negocios-cosmeticos",
         badge: "Long-term",
         headline: "Crescimento contínuo (2+ anos)",
         context: "Tráfego + criativos + constância.",
@@ -149,6 +149,36 @@ const tabs: NicheTab[] = [
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos.%20Quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Margem%20m%C3%A9dia%3A%20__.",
         screenshotUrl: caseVarejoCrescimento,
       },
+      {
+        id: "negocios-toldos",
+        badge: "Indústria",
+        headline: "Fábrica de toldos: demanda local com consistência",
+        context: "Captação + atendimento para orçamento e fechamento",
+        bullets: [
+          "Criativos por produto/aplicação",
+          "Intenção e orçamento como filtro",
+          "Rotina de WhatsApp e follow-up",
+        ],
+        ctaLabel: "Quero atrair clientes locais",
+        whatsappUrl:
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20f%C3%A1brica%20de%20toldos.%20Quero%20atrair%20clientes%20locais.%20Cidade%3A%20__.%20Servi%C3%A7o%3A%20__.%20Meta%3A%20__.",
+        screenshotUrl: undefined,
+      },
+      {
+        id: "negocios-solar",
+        badge: "Energia Solar",
+        headline: "Energia solar: leads qualificados com processo",
+        context: "Captação + qualificação para ticket maior",
+        bullets: [
+          "Oferta e criativos alinhados à região",
+          "Qualificação para reduzir curiosos",
+          "Rotina de follow-up para fechar",
+        ],
+        ctaLabel: "Quero leads mais qualificados",
+        whatsappUrl:
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20energia%20solar.%20Quero%20leads%20mais%20qualificados.%20Cidade%3A%20__.%20Ticket%20m%C3%A9dio%3A%20__.%20Meta%3A%20__.",
+        screenshotUrl: undefined,
+      },
     ],
   },
 ];
@@ -156,7 +186,7 @@ const tabs: NicheTab[] = [
 const segmentColors: Record<string, string> = {
   odonto: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   imobiliario: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  varejo: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+  "negocios-locais": "bg-amber-500/10 text-amber-400 border-amber-500/20",
 };
 
 // ── Component ───────────────────────────────────────────────────────
