@@ -80,7 +80,7 @@ const tabs: NicheTab[] = [
   {
     id: "odonto",
     label: "Odonto",
-    icon: <Smile size={14} />,
+    icon: <Smile size={14} strokeWidth={2} />,
     cases: [
       {
         id: "odonto-acessivel",
