@@ -38,7 +38,7 @@ const StickyProfile = () => {
       <button
         onClick={() =>
           handleTrackedClick(
-            "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20quero%20um%20diagn%C3%B3stico%20r%C3%A1pido%20para%20meu%20neg%C3%B3cio.",
+            "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20ASSESSORIA.%20Pode%20me%20ajudar%3F",
             "whatsapp_diagnostico",
             "primary"
           )
@@ -59,7 +59,7 @@ const StickyProfile = () => {
       <button
         onClick={() =>
           handleTrackedClick(
-            "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20aplicar%20para%20a%20mentoria%20Minimal%20PRO.",
+            "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20MENTORIA.%20Pode%20me%20ajudar%3F",
             "minimal_pro_aplicacao",
             "primary"
           )
