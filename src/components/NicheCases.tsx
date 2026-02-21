@@ -59,7 +59,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero estruturar meu funil",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20corretor%20(virada%20em%201%20ano).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20IMOB-VIRADA.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseImobiliarioVirada,
       },
       {
@@ -74,7 +74,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero estruturar meu funil",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20corretora%20(alto%20ticket).%20Quero%20estruturar%20meu%20funil.%20Regi%C3%A3o%3A%20__.%20Tipo%20de%20im%C3%B3vel%3A%20__.%20Meta%20mensal%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20IMOB-CORRETORA.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseImobiliarioCorretora,
       },
     ],
@@ -96,7 +96,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero um plano para minha clínica",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20Odonto%20(cl%C3%ADnica%20acess%C3%ADvel).%20Quero%20estruturar%20capta%C3%A7%C3%A3o%20por%20WhatsApp.%20Cidade%3A%20__.%20Procedimento%20foco%3A%20__.%20Meta%20de%20agenda%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20ODONTO-VOLUME.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseOdontoAcessivel,
       },
       {
@@ -111,7 +111,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero atrair pacientes premium",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20Odonto%20premium.%20Quero%20atrair%20pacientes%20mais%20qualificados.%20Cidade%3A%20__.%20Ticket%20m%C3%A9dio%3A%20__.%20Procedimento%20foco%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20ODONTO-PREMIUM.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseOdontoPremium,
       },
       {
@@ -126,7 +126,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero um plano pro meu caso",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20dentista%20(lentes%2FHOF%2Fpreenchimento).%20Quero%20um%20plano%20de%20capta%C3%A7%C3%A3o%20pro%20meu%20caso.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Meta%20de%20agenda%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20ODONTO-DOZERO.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseOdontoZero,
       },
     ],
@@ -148,7 +148,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero escalar minha loja de beleza",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos.%20Quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Margem%20m%C3%A9dia%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20BELEZA.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseVarejoCrescimento,
       },
       {
@@ -163,7 +163,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero atrair clientes locais",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20f%C3%A1brica%20de%20toldos.%20Quero%20atrair%20clientes%20locais.%20Cidade%3A%20__.%20Servi%C3%A7o%3A%20__.%20Meta%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20TOLDOS.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseToldos,
       },
       {
@@ -178,7 +178,7 @@ const tabs: NicheTab[] = [
         ],
         ctaLabel: "Quero leads mais qualificados",
         whatsappUrl:
-          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20energia%20solar.%20Quero%20leads%20mais%20qualificados.%20Cidade%3A%20__.%20Ticket%20m%C3%A9dio%3A%20__.%20Meta%3A%20__.",
+          "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20case%20%E2%80%94%20SOLAR.%20Pode%20me%20ajudar%3F",
         screenshotUrl: caseEnergiaSolar,
       },
     ],

@@ -91,7 +91,7 @@ const LinksSection = () => {
       accentColor: "#E1306C",
     },
     {
-      href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20me%20tornar%20cliente%20da%20Minimal%20Marketing.",
+      href: "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20SERVICO.%20Pode%20me%20ajudar%3F",
       title: "Fale comigo no WhatsApp",
       subtitle: "Tenha uma consultoria ou nos contrate",
       icon: <MessageCircle size={26} className="text-green-400" />,
@@ -100,7 +100,7 @@ const LinksSection = () => {
       accentColor: "#25D366",
     },
     {
-      href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20mentorado%20da%20Minimal%20PRO.",
+      href: "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20MENTORIA.%20Pode%20me%20ajudar%3F",
       title: "Minimal Pro",
       subtitle: "Mentoria 1 a 1 para gestores de tráfego e players do mercado digital",
       icon: (
@@ -115,7 +115,7 @@ const LinksSection = () => {
       accentColor: "#00A98F",
     },
     {
-      href: "https://wa.me/5512997289339?text=Ol%C3%A1%2C%20gostaria%20de%20ser%20aluno%20da%20Minimal%20Academy.",
+      href: "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20ACADEMY.%20Pode%20me%20ajudar%3F",
       title: "Minimal Academy",
       subtitle: "Tráfego pago, negócios digitais e networking em um só lugar",
       icon: (
