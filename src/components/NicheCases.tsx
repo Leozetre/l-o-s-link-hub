@@ -138,15 +138,15 @@ const tabs: NicheTab[] = [
     cases: [
       {
         id: "negocios-cosmeticos",
-        badge: "Long-term",
-        headline: "Crescimento contínuo (2+ anos)",
-        context: "Tráfego + criativos + constância.",
+        badge: "Beleza • 2+ anos",
+        headline: "Loja de cosméticos: muitos leads com investimento enxuto",
+        context: "Captação constante para produtos de beleza — parceria há 2+ anos.",
         bullets: [
-          "Crescimento de vendas e visibilidade",
-          "Rotina de criativos e campanhas",
-          "Parceria de longo prazo",
+          "Alto volume de leads no período (demanda recorrente)",
+          "Investimento baixo por lead e foco em eficiência",
+          "Retorno escalado com rotina de criativos + campanhas",
         ],
-        ctaLabel: "Quero escalar com consistência",
+        ctaLabel: "Quero escalar minha loja de beleza",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20do%20varejo%20de%20cosm%C3%A9ticos.%20Quero%20melhorar%20tr%C3%A1fego%20e%20const%C3%A2ncia%20de%20vendas.%20Cidade%3A%20__.%20Ticket%3A%20__.%20Margem%20m%C3%A9dia%3A%20__.",
         screenshotUrl: caseVarejoCrescimento,
