@@ -155,11 +155,11 @@ const tabs: NicheTab[] = [
         id: "negocios-toldos",
         badge: "Indústria",
         headline: "Fábrica de toldos: demanda local com consistência",
-        context: "Captação + atendimento para orçamento e fechamento",
+        context: "A gente aparece pra quem já está procurando por toldos e orçamento.",
         bullets: [
-          "Criativos por produto/aplicação",
-          "Intenção e orçamento como filtro",
-          "Rotina de WhatsApp e follow-up",
+          "224 leads gerados no período",
+          "Tráfego de intenção (quem precisa, chama)",
+          "Custo baixo por lead + rotina de WhatsApp e follow-up",
         ],
         ctaLabel: "Quero atrair clientes locais",
         whatsappUrl:
@@ -170,11 +170,11 @@ const tabs: NicheTab[] = [
         id: "negocios-solar",
         badge: "Energia Solar",
         headline: "Energia solar: leads qualificados com processo",
-        context: "Captação + qualificação para ticket maior",
+        context: "Captamos demanda com filtro e trabalhamos o lead até virar proposta.",
         bullets: [
-          "Oferta e criativos alinhados à região",
-          "Qualificação para reduzir curiosos",
-          "Rotina de follow-up para fechar",
+          "306 leads gerados no período",
+          "Qualificação pra reduzir curioso e aumentar fechamento",
+          "Custo baixo por lead com criativos alinhados à região",
         ],
         ctaLabel: "Quero leads mais qualificados",
         whatsappUrl:
