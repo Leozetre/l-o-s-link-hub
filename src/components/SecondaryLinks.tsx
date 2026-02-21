@@ -53,7 +53,7 @@ const SecondaryLinks = () => {
             className="h-6 w-auto object-contain mix-blend-screen"
           />
         }
-        href="https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20ACADEMY.%20Pode%20me%20ajudar%3F"
+        href="https://wa.me/5512997289339?text=Ol%C3%A1!%20Quero%20entrar%20na%20Minimal%20Academy.%20Pode%20me%20ajudar%3F"
         trackName="minimal_academy"
         trackCategory="produto"
       />
@@ -72,7 +72,7 @@ const SecondaryLinks = () => {
         title="Contratar Minimal Marketing"
         description="Assessoria e gestão de tráfego para seu negócio"
         icon={<Briefcase size={18} className="text-primary" />}
-        href="https://wa.me/5512997289339?text=Ol%C3%A1!%20Vim%20pelo%20hub%20%E2%80%94%20SERVICO.%20Pode%20me%20ajudar%3F"
+        href="https://wa.me/5512997289339?text=Ol%C3%A1!%20Tenho%20interesse%20na%20sua%20assessoria%20de%20marketing.%20Pode%20me%20ajudar%3F"
         trackName="whatsapp_cta_servico"
         trackCategory="servico"
       />
