@@ -6,6 +6,7 @@ import caseOdontoPremium from "@/assets/case-odonto-premium.png";
 import caseOdontoZero from "@/assets/case-odonto-zero.png";
 import caseVarejoCrescimento from "@/assets/case-varejo-crescimento.png";
 import caseImobiliarioCorretora from "@/assets/case-imobiliario-corretora.png";
+import caseEnergiaSolar from "@/assets/case-energia-solar.png";
 import {
   ArrowRight,
   Building2,
@@ -177,7 +178,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero leads mais qualificados",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20de%20energia%20solar.%20Quero%20leads%20mais%20qualificados.%20Cidade%3A%20__.%20Ticket%20m%C3%A9dio%3A%20__.%20Meta%3A%20__.",
-        screenshotUrl: undefined,
+        screenshotUrl: caseEnergiaSolar,
       },
     ],
   },
