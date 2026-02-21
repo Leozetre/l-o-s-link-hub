@@ -6,8 +6,10 @@ import { handleTrackedClick } from "@/lib/tracking";
 const FloatingCTAs = () => {
   const [visible, setVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLovableDomain, setIsLovableDomain] = useState(false);
 
   useEffect(() => {
+    setIsLovableDomain(window.location.hostname.includes("lovable.app"));
     const onScroll = () => setVisible(window.scrollY > 300);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -23,8 +25,10 @@ const FloatingCTAs = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed bottom-0 left-0 right-0 z-50 px-3 pb-3 pt-2"
+            className="lg:hidden fixed left-0 right-0 z-50 px-3 pt-2"
             style={{
+              bottom: isLovableDomain ? "72px" : "0px",
+              paddingBottom: isLovableDomain ? "8px" : "12px",
               background: "linear-gradient(to top, hsl(var(--background) / 0.95), transparent)",
             }}
           >
