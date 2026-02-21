@@ -250,9 +250,14 @@ const NicheCases = () => {
 
   return (
     <section id="cases" className="flex flex-col gap-4 mb-8">
-      <h2 className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground px-1">
-        Cases por nicho
-      </h2>
+      <div className="flex flex-col gap-1 px-1">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          Serviços
+        </h2>
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/60">
+          Cases por nicho
+        </p>
+      </div>
 
       {/* Tab bar */}
       <div className="flex gap-1.5">
