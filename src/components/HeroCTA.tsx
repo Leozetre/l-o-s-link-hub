@@ -19,13 +19,13 @@ const HeroCTA = () => {
           Léo Negrão
         </h1>
         <p className="text-sm sm:text-base text-muted-foreground font-medium max-w-sm">
-          Estrategista de tráfego pago e fundador da Minimal Marketing
+          Estrategista de tráfego pago e fundador do ecossistema Minimal
         </p>
       </div>
 
       {/* Social proof badges */}
       <div className="flex flex-wrap justify-center gap-2">
-        {["Imobiliárias", "Clínicas", "Negócios Locais"].map((niche) => (
+        {["Corretores de Imóveis", "Imobiliárias", "Clínicas", "Negócios Locais"].map((niche) => (
           <span
             key={niche}
             className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-primary/20 text-primary bg-primary/5"
@@ -35,7 +35,7 @@ const HeroCTA = () => {
         ))}
       </div>
       <p className="text-[11px] text-muted-foreground -mt-2">
-        +70 clientes atendidos
+        +75 clientes atendidos
       </p>
 
       {/* ── Category A: Primary Actions ── */}
