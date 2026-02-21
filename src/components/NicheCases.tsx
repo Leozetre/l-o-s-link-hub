@@ -7,6 +7,7 @@ import caseOdontoZero from "@/assets/case-odonto-zero.png";
 import caseVarejoCrescimento from "@/assets/case-varejo-crescimento.png";
 import caseImobiliarioCorretora from "@/assets/case-imobiliario-corretora.png";
 import caseEnergiaSolar from "@/assets/case-energia-solar.png";
+import caseToldos from "@/assets/case-toldos.png";
 import {
   ArrowRight,
   Building2,
@@ -163,7 +164,7 @@ const tabs: NicheTab[] = [
         ctaLabel: "Quero atrair clientes locais",
         whatsappUrl:
           "https://wa.me/5512997289339?text=Ol%C3%A1!%20Vi%20o%20case%20da%20f%C3%A1brica%20de%20toldos.%20Quero%20atrair%20clientes%20locais.%20Cidade%3A%20__.%20Servi%C3%A7o%3A%20__.%20Meta%3A%20__.",
-        screenshotUrl: undefined,
+        screenshotUrl: caseToldos,
       },
       {
         id: "negocios-solar",
