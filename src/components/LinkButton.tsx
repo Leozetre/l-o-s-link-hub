@@ -115,7 +115,7 @@ const LinksSection = () => {
       accentColor: "#00A98F",
     },
     {
-      href: "https://wa.me/5512997289339?text=Ol%C3%A1!%20Quero%20entrar%20na%20Minimal%20Academy.%20Pode%20me%20ajudar%3F",
+      href: "https://minimalacademy.vercel.app/",
       title: "Minimal Academy",
       subtitle: "Tráfego pago, negócios digitais e networking em um só lugar",
       icon: (
