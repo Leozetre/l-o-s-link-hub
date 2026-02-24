@@ -53,7 +53,7 @@ const SecondaryLinks = () => {
             className="h-6 w-auto object-contain mix-blend-screen"
           />
         }
-        href="https://wa.me/5512997289339?text=Ol%C3%A1!%20Quero%20entrar%20na%20Minimal%20Academy.%20Pode%20me%20ajudar%3F"
+        href="https://minimalacademy.vercel.app/"
         trackName="minimal_academy"
         trackCategory="produto"
       />
@@ -61,7 +61,7 @@ const SecondaryLinks = () => {
         title="Minimal Core"
         description="Ferramenta prática para gestores de tráfego"
         icon={<Zap size={18} className="text-amber-400" />}
-        href="#"
+        href="https://minimalcore.vercel.app/"
         trackName="minimal_core"
         trackCategory="produto"
       />
