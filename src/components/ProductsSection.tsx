@@ -1,5 +1,5 @@
 import { handleTrackedClick } from "@/lib/tracking";
-import { ArrowRight, Zap, Package } from "lucide-react";
+import { ArrowRight, Zap, Package, Lock } from "lucide-react";
 import { useState } from "react";
 import minimalProLogo from "@/assets/minimal-pro-logo.png";
 import minimalAcademyLogo from "@/assets/minimal-academy-logo.png";
@@ -13,6 +13,7 @@ interface ProductCardProps {
   href: string;
   trackName: string;
   accentColor: string;
+  locked?: boolean;
 }
 
 const LogoImage = ({ src, alt, fallback }: { src: string; alt: string; fallback: React.ReactNode }) => {
@@ -28,11 +29,12 @@ const ShimmerBadge = ({ label }: { label: string }) => (
   </span>
 );
 
-const ProductCard = ({ title, subtitle, badge, icon, href, trackName, accentColor }: ProductCardProps) => (
+const ProductCard = ({ title, subtitle, badge, icon, href, trackName, accentColor, locked }: ProductCardProps) => (
   <button
-    onClick={() => handleTrackedClick(href, trackName, "produto")}
-    className="group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl border border-border/50 transition-all duration-300 ease-out overflow-hidden text-left hover:-translate-y-1 hover:border-primary/25 hover:shadow-[0_8px_30px_-10px_hsl(168_100%_33%/0.15)]"
+    onClick={() => !locked && handleTrackedClick(href, trackName, "produto")}
+    className={`group relative flex items-center justify-between w-full p-4 sm:p-5 rounded-2xl border border-border/50 transition-all duration-300 ease-out overflow-hidden text-left ${locked ? 'opacity-60 cursor-not-allowed' : 'hover:-translate-y-1 hover:border-primary/25 hover:shadow-[0_8px_30px_-10px_hsl(168_100%_33%/0.15)]'}`}
     style={{ background: `linear-gradient(135deg, hsl(var(--card)), hsl(var(--secondary)))` }}
+    disabled={locked}
   >
     <div
       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"
@@ -57,11 +59,15 @@ const ProductCard = ({ title, subtitle, badge, icon, href, trackName, accentColo
       </div>
     </div>
 
-    <ArrowRight
-      size={20}
-      className="relative z-10 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 shrink-0 ml-4"
-      style={{ color: accentColor }}
-    />
+    {locked ? (
+      <Lock size={18} className="relative z-10 text-muted-foreground shrink-0 ml-4" />
+    ) : (
+      <ArrowRight
+        size={20}
+        className="relative z-10 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1 shrink-0 ml-4"
+        style={{ color: accentColor }}
+      />
+    )}
   </button>
 );
 
@@ -85,11 +91,12 @@ const products: ProductCardProps[] = [
   {
     title: "Minimal CORE.os",
     subtitle: "Ferramenta prática com estratégias aplicáveis para gestores de tráfego",
-    badge: "Lançamento",
+    badge: "Lançamento em breve",
     icon: <LogoImage src={minimalCoreLogo} alt="MinimalCore.os" fallback={<Zap size={24} className="text-primary" />} />,
     href: "https://minimalcore.vercel.app/",
     trackName: "minimal_core",
     accentColor: "#00A98F",
+    locked: true,
   },
 ];
 
