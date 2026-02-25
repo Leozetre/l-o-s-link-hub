@@ -72,5 +72,12 @@ export const handleTrackedClick = (
     category,
     href,
   });
-  window.open(href, "_blank", "noopener,noreferrer");
+  // Use a temporary anchor to open in new tab without losing current page
+  const a = document.createElement("a");
+  a.href = href;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 };
