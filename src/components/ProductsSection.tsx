@@ -76,7 +76,7 @@ const products: ProductCardProps[] = [
   },
   {
     title: "Minimal Academy",
-    subtitle: "Comunidade de Gestão de Tráfego Pago",
+    subtitle: "Comunidade de Gestão de Tráfego Pago, grupo de networking, calls semanais e muito mais",
     icon: <LogoImage src={minimalAcademyLogo} alt="Minimal Academy" fallback={<Package size={24} className="text-primary" />} />,
     href: "https://minimalacademy.vercel.app/",
     trackName: "minimal_academy",
