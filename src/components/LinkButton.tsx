@@ -117,7 +117,7 @@ const LinksSection = () => {
     {
       href: "https://minimalacademy.vercel.app/",
       title: "Minimal Academy",
-      subtitle: "Tráfego pago, negócios digitais e networking em um só lugar",
+      subtitle: "Comunidade de Gestão de Tráfego Pago",
       icon: (
         <img
           src={minimalAcademyLogo}
