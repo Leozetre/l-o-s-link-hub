@@ -85,7 +85,7 @@ const products: ProductCardProps[] = [
   {
     title: "Minimal CORE.os",
     subtitle: "Ferramenta prática com estratégias aplicáveis para gestores de tráfego",
-    badge: "Em breve",
+    badge: "Lançamento",
     icon: <LogoImage src={minimalCoreLogo} alt="MinimalCore.os" fallback={<Zap size={24} className="text-primary" />} />,
     href: "https://minimalcore.vercel.app/",
     trackName: "minimal_core",
