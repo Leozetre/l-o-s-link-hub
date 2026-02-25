@@ -169,7 +169,7 @@
   animation-delay: 4s;
 }
 
-/* Shimmer sweep for "Em breve" badge */
+/* Shimmer sweep for badge */
 @keyframes shimmer-sweep {
   0% { transform: translateX(-100%); opacity: 0; }
   40% { opacity: 0.35; }
