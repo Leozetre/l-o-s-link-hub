@@ -3,8 +3,8 @@ import { trackEvent } from "@/lib/tracking";
 import lauthLogo from "@/assets/partner-lauth.png";
 import metrifiqueiLogo from "@/assets/partner-metrifiquei.png";
 
-const LAUTH_AFF_URL = "https://LAUTH_AFF_URL";
-const METRIFIQUEI_AFF_URL = "https://METRIFIQUEI_AFF_URL";
+const LAUTH_AFF_URL = "https://go.hotmart.com/D102714623Q";
+const METRIFIQUEI_AFF_URL = "https://go.hotmart.com/C102209287V";
 
 interface Partner {
   name: string;
