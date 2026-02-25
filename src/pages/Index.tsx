@@ -5,6 +5,7 @@ import DesktopNav from "@/components/DesktopNav";
 import NicheCases from "@/components/NicheCases";
 import ProductsSection from "@/components/ProductsSection";
 import Footer from "@/components/Footer";
+import PartnerTools from "@/components/PartnerTools";
 import ThemeToggle from "@/components/ThemeToggle";
 import HeroCTA from "@/components/HeroCTA";
 import SectionReveal from "@/components/SectionReveal";
@@ -48,6 +49,8 @@ const Index = () => {
             <SectionReveal id="produtos">
               <ProductsSection />
             </SectionReveal>
+
+            <PartnerTools />
 
             <Footer />
           </main>
