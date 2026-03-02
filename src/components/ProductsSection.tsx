@@ -96,7 +96,6 @@ const products: ProductCardProps[] = [
     href: "https://minimalcore.vercel.app/",
     trackName: "minimal_core",
     accentColor: "#00A98F",
-    locked: true,
   },
 ];
 
