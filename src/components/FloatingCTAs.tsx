@@ -18,7 +18,7 @@ const FloatingCTAs = () => {
   return (
     <AnimatePresence>
       {visible && (
-        <>
+        <div key="floating-ctas">
           {/* Mobile: sticky bottom bar */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -133,7 +133,7 @@ const FloatingCTAs = () => {
               </button>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

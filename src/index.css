@@ -88,34 +88,8 @@
   }
 }
 
-/* Animated gradient background */
+/* Animated gradient background — light mode */
 .animated-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--background)) 0%,
-    hsl(168 30% 6%) 25%,
-    hsl(var(--background)) 50%,
-    hsl(200 20% 5%) 75%,
-    hsl(var(--background)) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 20s ease infinite;
-}
-
-.dark .animated-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(0 0% 5%) 0%,
-    hsl(168 30% 6%) 25%,
-    hsl(0 0% 7%) 50%,
-    hsl(200 20% 5%) 75%,
-    hsl(0 0% 5%) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 20s ease infinite;
-}
-
-:root .animated-gradient {
   background: linear-gradient(
     135deg,
     hsl(220 14% 96%) 0%,
@@ -128,7 +102,8 @@
   animation: gradient-shift 20s ease infinite;
 }
 
-:root.dark .animated-gradient {
+/* Animated gradient background — dark mode */
+.dark .animated-gradient {
   background: linear-gradient(
     135deg,
     hsl(0 0% 5%) 0%,
@@ -137,6 +112,8 @@
     hsl(200 20% 5%) 75%,
     hsl(0 0% 5%) 100%
   );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
 }
 
 @keyframes gradient-shift {
