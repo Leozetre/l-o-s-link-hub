@@ -22,9 +22,9 @@ const LogoImage = ({ src, alt, fallback }: { src: string; alt: string; fallback:
   return <img src={src} alt={alt} onError={() => setFailed(true)} className="h-full w-full object-contain" />;
 };
 
-const ShimmerBadge = ({ label }: { label: string }) => (
-  <span className="relative text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 leading-none overflow-hidden">
-    {label}
+const LaunchBadge = ({ label }: { label: string }) => (
+  <span className="relative text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary text-primary-foreground leading-none overflow-hidden animate-pulse shadow-[0_0_12px_hsl(var(--primary)/0.5)]">
+    🚀 {label}
     <span className="absolute inset-0 rounded-full pointer-events-none shimmer-sweep" aria-hidden="true" />
   </span>
 );
@@ -51,7 +51,7 @@ const ProductCard = ({ title, subtitle, badge, icon, href, trackName, accentColo
       <div className="flex flex-col gap-0.5">
         <div className="flex items-center gap-2">
           <span className="text-lg sm:text-xl leading-tight font-bold text-link-text">{title}</span>
-          {badge && (badge.toLowerCase().includes("breve") ? <ShimmerBadge label={badge} /> : (
+          {badge && (badge.toLowerCase().includes("lançamento") ? <LaunchBadge label={badge} /> : (
             <span className="text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 leading-none">{badge}</span>
           ))}
         </div>
@@ -91,7 +91,7 @@ const products: ProductCardProps[] = [
   {
     title: "Minimal CORE.os",
     subtitle: "Ferramenta prática com estratégias aplicáveis para gestores de tráfego",
-    badge: "Lançamento em breve",
+    badge: "Lançamento!",
     icon: <LogoImage src={minimalCoreLogo} alt="MinimalCore.os" fallback={<Zap size={24} className="text-primary" />} />,
     href: "https://minimalcore.vercel.app/",
     trackName: "minimal_core",
