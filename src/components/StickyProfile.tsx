@@ -36,6 +36,8 @@ const StickyProfile = () => {
         +75 clientes atendidos
       </p>
 
+      <SocialIcons />
+
       <button
         onClick={() =>
           handleTrackedClick(

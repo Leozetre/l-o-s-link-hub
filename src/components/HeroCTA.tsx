@@ -39,6 +39,8 @@ const HeroCTA = () => {
         +75 clientes atendidos
       </p>
 
+      <SocialIcons />
+
       {/* ── Category A: Primary Actions ── */}
       <button
         onClick={() =>
