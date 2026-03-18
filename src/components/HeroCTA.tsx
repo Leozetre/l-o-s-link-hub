@@ -1,6 +1,7 @@
 import { handleTrackedClick } from "@/lib/tracking";
 import { MessageCircle, GraduationCap } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
+import SocialIcons from "@/components/SocialIcons";
 
 const HeroCTA = () => {
   return (
@@ -37,6 +38,8 @@ const HeroCTA = () => {
       <p className="text-[11px] text-muted-foreground -mt-2">
         +75 clientes atendidos
       </p>
+
+      <SocialIcons />
 
       {/* ── Category A: Primary Actions ── */}
       <button
