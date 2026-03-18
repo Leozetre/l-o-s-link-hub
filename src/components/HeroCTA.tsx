@@ -1,6 +1,7 @@
 import { handleTrackedClick } from "@/lib/tracking";
 import { MessageCircle, GraduationCap } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
+import SocialIcons from "@/components/SocialIcons";
 
 const HeroCTA = () => {
   return (
